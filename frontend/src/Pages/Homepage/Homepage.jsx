@@ -14,11 +14,10 @@ const Homepage = () => {
      </div>
     </div>
     <div style={{backgroundColor:"#f2f4f6"}}>
-   
       <br/>
-     <div style={{ padding:"3%", backgroundColor:"white"}}>
+     {/* <div style={{ padding:"3%", backgroundColor:"white"}}>
      <SliderOne/>
-     </div>
+     </div> */}
      <Footer/>
     </div>
    </>
