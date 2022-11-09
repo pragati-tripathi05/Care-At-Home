@@ -139,7 +139,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      {/* ------------------------------footer ottom------------------------------- */}
+      {/* ------------------------------footer bottom------------------------------- */}
 
       <div className="footer_bottom">
         <SimpleGrid columns={[1, 2, 3, 4]} spacing="10px">
