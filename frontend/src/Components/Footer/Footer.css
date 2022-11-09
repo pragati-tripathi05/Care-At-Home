@@ -10,7 +10,7 @@
     height: auto;
     font-size: 14px;
     font-weight: bold;
-    padding: 20px 0px;
+    padding: 16px 0px;
     color: #c2bfbf;
   }
 
@@ -19,8 +19,8 @@
   }
 
   .footer_top {
-    border-bottom: 2px solid grey;
-    width: 90%;
+    border-bottom: 1px solid grey;
+    width: 95%;
     margin: auto;
   }
   .footer_top ul {
@@ -28,7 +28,7 @@
     list-style: none;
   }
   .footer_top ul li {
-    padding: 10px;
+    padding: 10px 10px 10px 5px;
   }
 
   .footer_top ul li:hover{
@@ -39,7 +39,7 @@
   /* ==========================Mid========================================= */
   .footer_mid {
     border-bottom: 2px solid grey;
-    width: 90%;
+    width: 95%;
     margin: auto;
   }
   
@@ -61,7 +61,7 @@
     list-style: none;
   }
   .Footer__countriesRoot ul li {
-    padding: 10px;
+    padding: 10px 10px 10px 5px;
     list-style: none;
   }
 
@@ -81,7 +81,6 @@
     width: 90%;
     margin: auto;
     padding: 20px 0;
-   
   }
   
   .f_logo img {
