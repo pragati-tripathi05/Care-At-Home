@@ -2,8 +2,6 @@ const express = require("express");
 const connection = require("./Config/db");
 require("dotenv").config();
 const { User } = require("./Models/user.model");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
 const cors = require("cors");
 const { userSignup, userLogin } = require("./Controllers/user.controller");
 const PORT = process.env.PORT || 8080;
