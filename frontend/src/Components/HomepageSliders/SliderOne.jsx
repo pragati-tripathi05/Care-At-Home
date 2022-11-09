@@ -72,19 +72,19 @@ export default class SliderOne extends Component {
       </IconButton>
         <Slider {...settings}>
           <div>
-            <img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/home-screen/1663945434053-273a1a.jpeg" alt="1"  style={{paddingRight:"4%", borderRadius:"10px"}}/>
+            <img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/home-screen/1667386493900-1d5e09.jpeg" alt="1"  style={{paddingRight:"4%", borderRadius:"10px"}}/>
           </div>
           <div>
-          <img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/luminosity/1661745697178-c83202.png" alt="1" style={{paddingRight:"4%"}}/>
+          <img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/supply/partner-app-supply/1667472964177-812867.jpeg" alt="1" style={{paddingRight:"4%"}}/>
           </div>
           <div>
-          <img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/home-screen/1662377264033-320229.png" alt="1" style={{paddingRight:"4%", borderRadius:"15px"}}/>
+          <img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/home-screen/1667233651076-c210f8.jpeg" alt="1" style={{paddingRight:"4%", borderRadius:"15px"}}/>
           </div>
           <div>
-          <img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/home-screen/1663937862584-33cc6c.jpeg" alt="1" style={{paddingRight:"4%", borderRadius:"15px"}}/>
+          <img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/luminosity/1667594664089-1b275d.jpeg" alt="1" style={{paddingRight:"4%", borderRadius:"15px"}}/>
           </div>
           <div>
-          <img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/luminosity/1661745697178-c83202.png" alt="1" style={{paddingRight:"4%"}}/>
+          <img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/home-screen/1667233650651-818df5.jpeg" alt="1" style={{paddingRight:"4%"}}/>
           </div>
           {/* <div>
             <h3>5</h3>
