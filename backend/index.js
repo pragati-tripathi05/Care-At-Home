@@ -2,17 +2,24 @@ const express = require("express");
 const connection = require("./Config/db");
 require("dotenv").config();
 const { User } = require("./Models/user.model");
+const {Mensalon}=require("./Models/Mensalon.model")
+const {MensalonRouter}=require("./Routes/Mensalon.route")
+const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
+const PORT =process.env.PORT ||  8080;
 const cors = require("cors");
 const { userSignup, userLogin } = require("./Controllers/user.controller");
 const passport = require("./Config/google-oauth");
 const authentication = require("./Middlewares/Authentication");
 const { cartProd } = require("./Models/cartprod.model");
-const PORT = process.env.PORT || 8080;
+
 const app = express();
 
 app.use(cors());
 
 app.use(express.json());
+
+app.use("/mensalon",MensalonRouter)
 
 app.get("/", (req, res) => {
   res.send("welcome to our api");
