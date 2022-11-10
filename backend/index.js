@@ -7,6 +7,7 @@ const {MensalonRouter}=require("./Routes/Mensalon.route")
 const {MentherapiesRouter}=require("./Routes/Mentherapies.route")
 const {Womentherapiesdata}= require("./Routes/Womentherapies.route")
 const {WomenhairRouter}=require("./Routes/WomenHair.route")
+const {salonRouter}=require("./Routes/SalonPrime.route")
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 const PORT =process.env.PORT ||  8080;
@@ -23,9 +24,10 @@ app.use("/mensalon",MensalonRouter)
 app.use("/mentherapies",MentherapiesRouter)
 app.use("/womentherapies",Womentherapiesdata)
 app.use("/womenhair",WomenhairRouter)
+app.use("/salon",salonRouter)
 
 app.get("/", (req, res) => {
-  res.send("welcome to our  api");
+  res.send("welcome to our api");
 });
 
 app.post("/signup", userSignup);
