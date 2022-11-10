@@ -11,7 +11,7 @@ const cors = require("cors");
 const { userSignup, userLogin } = require("./Controllers/user.controller");
 const passport = require("./Config/google-oauth");
 const authentication = require("./Middlewares/Authentication");
-const { cartProd } = require("./Models/cartprod.model");
+const { addToCart, getCartProds, incQuantity, decQuantity } = require("./Controllers/cart.controller");
 
 const app = express();
 
@@ -35,17 +35,13 @@ app.get("/", (req, res) => {
 //     res.redirect('/');
 //   });
 
-app.post("/addtocart",authentication,async (req,res)=>{
-  const {title,price,quantity, userId} = req.body
-  const prod = new cartProd({title,price,quantity, userId})
-  await prod.save()
-  res.send("product is added to the cart")
-})
+app.post("/addtocart",authentication,addToCart)
 
-// app.get("/cart" , authentication, async(req,res)=>{
+app.get("/cart" , authentication, getCartProds)
 
-// })
+app.patch("/cart/inc/:prodId" ,authentication, incQuantity)
 
+app.patch("/cart/dec/:prodId" , authentication, decQuantity)
 app.post("/signup", userSignup);
 
 app.post("/login", userLogin);
