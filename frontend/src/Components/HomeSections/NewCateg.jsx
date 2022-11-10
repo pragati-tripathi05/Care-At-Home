@@ -5,7 +5,7 @@ import { Box, SimpleGrid } from "@chakra-ui/react";
 const NewCateg = () => {
   return (
     <div>
-       <div className="bestdeal_offer">
+       <div className="newcateg_offer">
         <div className="offer_text">
           <h1>New Category Launches</h1>
           <p>Hygienic & single-use products | low-contact services</p>

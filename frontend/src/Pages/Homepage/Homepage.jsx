@@ -21,15 +21,15 @@ const Homepage = () => {
      {/* <div style={{ padding:"3%", backgroundColor:"white"}}>
      <SliderOne/>
      </div> */}
-      <div style={{ padding:"3%", backgroundColor:"white"}}>
+      <div style={{ padding:"2%", backgroundColor:"white"}}>
      <NewCateg/>
      </div>
      <br/>
-     <div style={{ padding:"3%", backgroundColor:"white"}}>
+     <div style={{ padding:"2%", backgroundColor:"white"}}>
       <Appliances/>
       </div>
      <br/>
-     <div style={{ padding:"3%", backgroundColor:"white"}}>
+     <div style={{ padding:"2%", backgroundColor:"white"}}>
      <SsmServices/>
      </div>
      <Footer/>

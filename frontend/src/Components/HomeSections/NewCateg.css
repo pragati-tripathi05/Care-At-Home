@@ -2,27 +2,13 @@
     margin: 0;
     padding: 0;
   }
-  
-  .bestdeal_container {
-    height: auto;
-    width: 100%;
-    /* border: 1px solid red; */
-    text-align: center;
-    
-  }
-  .backgrount {
-    height: 20px;
-    width: 100%;
-    background-color: rgb(221, 217, 217);
-  }
+ 
   
   .bestdeal_slider {
     padding: 40px 0;
   }
-  
-  /* ------------------------------best offer----------------------------------------------------- */
-  
-  .bestdeal_offer {
+    
+  .newcateg_offer {
     padding: 50px;
   }
   .offer_text h1 {
