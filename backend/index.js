@@ -5,6 +5,7 @@ const { User } = require("./Models/user.model");
 const {Mensalon}=require("./Models/Mensalon.model")
 const {MensalonRouter}=require("./Routes/Mensalon.route")
 const {MentherapiesRouter}=require("./Routes/Mentherapies.route")
+const {Womentherapiesdata}= require("./Routes/Womentherapies.route")
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 const PORT =process.env.PORT ||  8080;
@@ -19,6 +20,7 @@ app.use(express.json());
 
 app.use("/mensalon",MensalonRouter)
 app.use("/mentherapies",MentherapiesRouter)
+app.use("/womentherapies",Womentherapiesdata)
 
 app.get("/", (req, res) => {
   res.send("welcome to our api");
