@@ -16,7 +16,6 @@ const getCartProds = async (req, res) => {
 const incQuantity = async (req, res) => {
   const { prodId } = req.params;
   const prod = await cartProd.findById(prodId);
-  console.log(prod);
   await cartProd.updateOne({ _id: prodId }, { $inc: { quantity: 1 } });
   res.send("product quantity increased");
 };
@@ -24,7 +23,6 @@ const incQuantity = async (req, res) => {
 const decQuantity = async (req, res) => {
   const { prodId } = req.params;
   const prod = await cartProd.findById(prodId);
-  console.log(prod.quantity);
   if (prod.quantity == 1) {
     await cartProd.findByIdAndDelete(prodId);
     res.send("product deleted from the cart");
