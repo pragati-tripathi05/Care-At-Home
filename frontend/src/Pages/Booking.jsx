@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Flex, Text } from "@chakra-ui/react";
 import "./Booking.css";
+
 const Booking = () => {
   const [theme, setTheme] = useState();
 
