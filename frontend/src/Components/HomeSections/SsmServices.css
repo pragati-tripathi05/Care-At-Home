@@ -13,7 +13,8 @@
   .backgrount {
     height: 20px;
     width: 100%;
-    background-color: rgb(221, 217, 217);
+    /* background-color: rgb(221, 217, 217); */
+    background-color: #f2f4f6;
   }
   
   .bestdeal_slider {

@@ -4,6 +4,7 @@ import Homepage from "../Pages/Homepage/Homepage";
 import Booking from "../Pages/Booking";
 import Signup from "../Components/Auth/Signup";
 import Login from "../Components/Auth/Login";
+import ProductPage from "../Components/ProductPage";
 
 const MainRoutes = () => {
   return (
@@ -13,6 +14,7 @@ const MainRoutes = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/booking" element={<Booking />} />
+        <Route path="/product" element={<ProductPage />} />
       </Routes>
     </>
   );

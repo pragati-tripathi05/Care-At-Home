@@ -3,6 +3,7 @@ import Footer from "../../Components/Footer/Footer";
 import SliderOne from "../../Components/HomepageSliders/SliderOne";
 import Appliances from "../../Components/HomeSections/Appliances";
 import HomeSection from "../../Components/HomeSections/HomeSection";
+import Insurance from "../../Components/HomeSections/Insurance";
 import Luxury from "../../Components/HomeSections/Luxury";
 import NewCateg from "../../Components/HomeSections/NewCateg";
 import PestControl from "../../Components/HomeSections/PestControl";
@@ -47,6 +48,8 @@ const Homepage = () => {
         <div style={{ padding: "1%", backgroundColor: "white" }}>
           <Repairs />
         </div>
+        <br/>
+        <Insurance/>
         <Footer />
       </div>
     </>
