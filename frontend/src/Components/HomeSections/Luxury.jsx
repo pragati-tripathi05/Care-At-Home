@@ -2,13 +2,13 @@ import React from 'react';
 import "./SsmServices.css";
 import { Box, SimpleGrid } from "@chakra-ui/react";
 
-const SsmServices = () => {
+const Luxury = () => {
   return (
     <div>
-       <div className="bestdeal_offer">
+      <div className="bestdeal_offer">
         <div className="offer_text">
-          <h1>Salon, Spa and Massage Services</h1>
-          <p>Hygienic & Single-use products | Low-contact services</p>
+          <h1>UC Luxury Experience</h1>
+          <p>Top Professionals | Best Brands | Premium Experience</p>
         </div>
         <div className="offer_content">
           <SimpleGrid columns={[1, 2, 3, 4]} spacing="30px">
@@ -17,15 +17,12 @@ const SsmServices = () => {
               <div className="content_box">
                 <div className="content_img">
                   <img
-                    src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_532/t_high_res_category/images/growth/home-screen/1603078782132-dfcd55.jpeg"
+                    src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_532/t_high_res_category/images/growth/home-screen/1631883165804-025664.png"
                     alt="Salon"
                   />
                 </div>
                 <div className="content_category">
-                  <p>Salon Prime</p>
-                </div>
-                <div className="content_price">
-                  <span>Free Waxing</span>
+                  <p>Salon Luxe</p>
                 </div>
               </div>
             </Box>
@@ -34,15 +31,12 @@ const SsmServices = () => {
               <div className="content_box">
                 <div className="content_img">
                   <img
-                    src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_532/t_high_res_category/images/growth/home-screen/1615874646690-66ab68.jpeg"
+                    src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_532/t_high_res_category/images/growth/home-screen/1631883164057-dd5910.png"
                     alt="hair"
                   />
                 </div>
                 <div className="content_category">
-                  <p>Salon for Men</p>
-                </div>
-                <div className="content_price">
-                  <span>Flat ₹100 off</span>
+                  <p>Salon For Men Royale</p>
                 </div>
               </div>
             </Box>
@@ -51,15 +45,12 @@ const SsmServices = () => {
               <div className="content_box">
                 <div className="content_img">
                   <img
-                    src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_532/t_high_res_category/images/growth/home-screen/1601893536279-77bf02.png"
+                    src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_532/t_high_res_category/images/growth/home-screen/1631883164904-165c1e.png"
                     alt="hair"
                   />
                 </div>
                 <div className="content_category">
-                  <p>Spa for Women</p>
-                </div>
-                <div className="content_price">
-                  <span>Free head massage</span>
+                  <p>Spa Luxe</p>
                 </div>
               </div>
             </Box>
@@ -68,15 +59,12 @@ const SsmServices = () => {
               <div className="content_box">
                 <div className="content_img">
                   <img
-                    src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_532/t_high_res_category/images/supply/customer-app-supply/1606211470897-f4afbc.jpeg"
+                    src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_532/t_high_res_category/images/growth/home-screen/1631883164502-08f9f6.png"
                     alt="Massage"
                   />
                 </div>
                 <div className="content_category">
-                  <p>Massage for Men</p>
-                </div>
-                <div className="content_price">
-                  <span>Starts at ₹499</span>
+                  <p>Massage Therapy For Men Royale</p>
                 </div>
               </div>
             </Box>
@@ -89,4 +77,4 @@ const SsmServices = () => {
   )
 }
 
-export default SsmServices
+export default Luxury
