@@ -86,7 +86,7 @@ const HomeSection = () => {
         <Box mt="10rem">
           <Heading
             as="h1"
-            style={{ color: "white", fontSize: "48px", marginBottom: "2.5rem" }}
+            style={{ color: "white", fontSize: "48px", marginBottom: "2.5rem",fontFamily: "Roboto"}}
           >
             Home services, on demand.
           </Heading>
@@ -236,7 +236,7 @@ const HomeSection = () => {
       </Box>
       {/* Home Services Start */}
       <Box mt="8rem">
-        <Heading as="h1" fontSize="32px">
+        <Heading as="h1" fontSize="32px" fontFamily= 'Roboto'>
           Home Services
         </Heading>
         {/* Service Section-2 Cards Starts */}
