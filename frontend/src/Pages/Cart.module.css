@@ -1,0 +1,62 @@
+#cartbox {
+    /* border: 1px solid red; */
+    height: 500px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: auto;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+#cartbox>div {
+    /* border: 1px solid green; */
+    height: 100%;
+
+}
+
+.cartprod {
+    /* border-top: 1px solid grey;
+    border-bottom: 1px solid grey; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#qtybox {
+    border: 1px solid rgb(110, 66, 229);
+    color: rgb(110, 66, 229);
+    border-radius: 10px;
+    background: rgb(241, 236, 255);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    padding: 2px 15px;
+    font-size: 20px;
+    position: absolute;
+    right: 20%;
+}
+
+.removeBut {
+    padding-left: 18px;
+    padding-right: 18px;
+    /* padding: 10px; */
+    background-color: rgb(241, 236, 255);
+    border: 1px solid rgb(110, 66, 229);
+    color: rgb(110, 66, 229);
+    border-radius: 10px;
+}
+#paySum{
+    padding: 20px;
+}
+#paySum>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding: 10px;
+}
