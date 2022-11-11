@@ -1,6 +1,4 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
 import "./Appliances.css";
 import { Box, SimpleGrid } from "@chakra-ui/react";
 

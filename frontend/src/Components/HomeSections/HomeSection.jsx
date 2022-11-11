@@ -174,8 +174,8 @@ const HomeSection = () => {
             </Box>
           </Flex>
           <Text ml="-1.5rem" mt="0.5rem" color="white" fontSize="16px">
-            <Link>Women's Therapies</Link>, <Link>Salon for men</Link>,{" "}
-            <Link>Men's Therapies </Link>etc
+            <Link><u>Women's Therapies</u></Link>, <Link><u> Salon for men</u></Link>,
+            <Link><u> Men's Therapies</u> </Link> etc
           </Text>
         </Box>
         {/* Search Section End */}
