@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Flex } from "@chakra-ui/react";
+import { Button, Flex, Text } from "@chakra-ui/react";
 import "./Booking.css";
 const Booking = () => {
   const [theme, setTheme] = useState();
@@ -9,8 +9,16 @@ const Booking = () => {
   };
 
   return (
-    <div className="body">
-      <h3>My Bookings</h3>
+    <div>
+      <Text
+        fontWeight={"bold"}
+        fontFamily={
+          "axiforma-regular,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;"
+        }
+        fontSize={"20px"}
+      >
+        My Bookings
+      </Text>
       <br />
 
       <Flex
@@ -40,13 +48,17 @@ const Booking = () => {
           HISTORY
         </Button>
       </Flex>
-      <div>You don't have any projects right now</div>
+      <Text>You don't have any projects right now</Text>
       <br />
       <Button
         id="book"
         fontFamily={
           "axiforma-regular,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;"
         }
+        pr={"30px"}
+        pl={"30px"}
+        pt={"12px"}
+        pb={"12px"}
       >
         BOOK A SERVICE
       </Button>
