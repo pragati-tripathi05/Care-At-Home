@@ -5,12 +5,14 @@ import "slick-carousel/slick/slick-theme.css";
 import "./App.css";
 import MainRoutes from "./AllRoutes/MainRoutes";
 import Booking from './Pages/Homepage/Booking';
+import Cart from './Pages/Cart';
 function App() {
   return (
     <div className="App">
       {/* <HomeSection/>
       <MainRoutes /> */}
-      <Booking/>
+      {/* <Booking/> */}
+      <Cart />
     </div>
   );
 }
