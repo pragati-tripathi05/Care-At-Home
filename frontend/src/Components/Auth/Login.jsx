@@ -37,8 +37,10 @@ function Login({onClose}) {
         navigate("/");
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response.data);
+        alert(err.response.data)
         dispatch(loginFailureAction());
+        onClose()
       });
   };
   return (

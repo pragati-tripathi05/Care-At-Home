@@ -7,13 +7,13 @@ import {
 } from "./actionTypes";
 
 const initState = {
-    isAuth: accessData("token") ? true : false,
+    // isAuth: accessData("token") ? true : false,
   isAuth: accessData("isAuth") || false,
   isAuthLoading: false,
   token: accessData("token") || null,
   name: accessData("name") || null
 };
-
+console.log(initState.isAuth)
 export const reducer = (state = initState, action) => {
   switch (action.type) {
     case LOGIN_REQUEST: {
