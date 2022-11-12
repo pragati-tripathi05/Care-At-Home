@@ -1,0 +1,37 @@
+*{
+    text-align: left;
+    background-color: #e5e5e5 ;
+}
+
+.container{
+    margin: 2% 22% 1% 22%;
+    /* border: 2px solid red; */
+}
+
+.title{
+    padding-top: 1% 0%;
+    position: fixed;
+    top: 0%;
+    left: 22%;
+    width: 56%;
+}
+
+.title p{
+    font-size: 22px;
+    font-weight: 700;
+    background-color: white;
+}
+
+.title .amount{
+    font-size: 12px;
+    color: gray;
+}
+
+.card{
+    background-color: white;
+    padding: 3%;
+}
+
+.heading{
+    background-color: white;
+}
