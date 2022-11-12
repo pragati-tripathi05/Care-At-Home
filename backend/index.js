@@ -10,6 +10,7 @@ const { WomenhairRouter } = require("./Routes/WomenHair.route");
 
 const { salonRouter } = require("./Routes/SalonPrime.route");
 const { bookingData } = require("./Controllers/booking.controller");
+const { addBookingData } = require("./Controllers/booking.controller");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const PORT = process.env.PORT || 8080;
@@ -66,6 +67,7 @@ app.patch("/cart/inc/:prodId", authentication, incQuantity);
 app.patch("/cart/dec/:prodId", authentication, decQuantity);
 
 app.get("/bookingHistory", authentication, bookingData);
+app.post("/addBookingHistory", authentication, addBookingData);
 app.post("/signup", userSignup);
 
 app.post("/login", userLogin);

@@ -10,8 +10,8 @@ import BookingList from "./Components/BookingList";
 function App() {
   return (
     <div className="App">
-      {/* <MainRoutes /> */}
-<BookingList/>
+      <MainRoutes />
+      <BookingList/>
     </div>
   );
 }
