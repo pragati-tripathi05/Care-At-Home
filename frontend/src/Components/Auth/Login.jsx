@@ -1,4 +1,4 @@
-import { Button, Heading, Input } from "@chakra-ui/react";
+import { Button, Heading, Input, useToast } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -38,6 +38,12 @@ function Login({onClose}) {
       })
       .catch((err) => {
         console.log(err);
+        // toast({
+        //   title: 'S',
+        //   status: 'success',
+        //   duration: 2000,
+        //   isClosable: true,
+        // })
         dispatch(loginFailureAction());
       });
   };
