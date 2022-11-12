@@ -12,7 +12,7 @@
 
 <br/>
 
-# Pages
+## Pages
 
          - Homepage
          - Login / Signup
@@ -21,7 +21,7 @@
          - Payments
          - Booking History
 
-# Contributors
+## Contributors
 
 - fw14_540 - <a href="https://github.com/ramanabandapu"> Ramana Bandapu </a>
 - fw17_0086 - <a href="https://github.com/vkrajput26"> Vivek Rajput </a>
