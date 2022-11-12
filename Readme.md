@@ -1,11 +1,11 @@
 psychotic-yam-1841
 
-<h2 align="center">Urban Company Clone</h2>
- <h1 align="center">  CareAtHome</h1>
+## _Urban Company Clone_
+# <img src="https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/careAtHome.png" width="3%" /> **CareAtHome**
 
-<h2 align="center"><a href=""><strong>Deployed site »</strong></a></h2>
-<h2 align="center"><a href=""><strong>Deployed backend »</strong></a></h2>
-<h5 align="center"><a href="https://www.urbancompany.com/delhi-ncr"><strong>Original site »</strong></a></h5>
+## Deployed site »<a href=""> </a>
+## Deployed backend » <a href="">  </a>
+### Original site » <a href="https://www.urbancompany.com/delhi-ncr"> https://www.urbancompany.com </a>
 <br />
 
 ### Urban Company is an online platform helping customers to book reliable & high quality services, delivered by trained professionals conveniently at home.
@@ -14,12 +14,12 @@ psychotic-yam-1841
 
 # Pages
 
-- Homepage
-- Booking
-- Login / Signup
-- Products
-- Cart
-- Payments
+   - Homepage
+   - Booking
+   - Login / Signup
+   - Products
+   - Cart
+   - Payments
 
 # Contributors
 
@@ -31,6 +31,9 @@ psychotic-yam-1841
 
 ## Glimpse of our website
 
+- _HomePage_
 ![Homepage](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/1.png)
 ![Homepage](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/2.png)
+
+- _Payments Page_
 ![Homepage](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/5.png)
