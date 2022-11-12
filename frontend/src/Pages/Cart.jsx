@@ -2,12 +2,16 @@ import { Box, Button, Heading, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import styles from "./Cart.module.css";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
-const token = JSON.parse(localStorage.getItem("token"))
-  // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNmJlZGFjMmVlNDcyMmYwYTc3YTBhZCIsImlhdCI6MTY2ODEwMDI2N30.19R3o4jpfj_gldcf1B_prcrUWFv8cbvFYLfxNaURXqI";
+
 function Cart() {
   const [cartData, setCartData] = useState([]);
   const [total, setTotal] = useState(0);
+  const token = useSelector((state) => {
+    return state.reducer.token;
+  });
+  // console.log(token)
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -17,9 +21,9 @@ function Cart() {
     axios
       .get("http://localhost:4000/cart", config)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setCartData(res.data);
-        gettotal(res.data)
+        gettotal(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -55,7 +59,6 @@ function Cart() {
       for (var i = 0; i < data.length; i++) {
         sum += data[i].price * data[i].quantity;
       }
-      console.log("sum", sum, data.length);
       setTotal(sum);
     }
     // return;
@@ -64,20 +67,19 @@ function Cart() {
     getCartProd();
   }, []);
 
-  console.log("total", total);
   return (
-    <Box w= "80%" m="auto" mt="30px">
+    <Box w="80%" m="auto" mt="30px">
       <Heading textAlign={"left"}>Summary</Heading>
       <br />
       <hr />
 
       <Box id={styles.cartbox}>
         <Box w="58%">
-          <Box padding={"15px 30px"}>
+          {/* <Box padding={"15px 30px"}>
             You are saving a total of 935 on this total
-          </Box>
+          </Box> */}
           <br />
-          <hr />
+          {/* <hr /> */}
           <br />
           {cartData?.map((elem) => (
             <Box className={styles.cartprod}>
@@ -115,7 +117,7 @@ function Cart() {
             <p>Item total</p> <p>{total}</p>
           </Box>
           <Box>
-            <p>Item discount</p> <Text color="green">-150</Text>
+            <p>Item discount</p> <Text color="green">-218</Text>
           </Box>
           <Box>
             <p>Membership Discount</p> <Text color="green">-150</Text>
@@ -128,9 +130,11 @@ function Cart() {
           </Box>
           <hr />
           <Box>
-            <b>Total</b> <b>{total - 150 - 150 + 69 + 299}</b>
+            <b>Total</b> <b>{total - 218 - 150 + 69 + 299}</b>
           </Box>
+          <Button ml="65%" bg="rgb(110, 66, 229)" color={"white"}>{` Go to Payments`}</Button>
         </Box>
+        
       </Box>
     </Box>
   );

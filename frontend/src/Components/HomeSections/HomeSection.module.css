@@ -7,7 +7,9 @@
 
 .topNavbar {
   justify-content: space-between;
+  align-items: center;
   padding: 1rem 10rem;
+  /* border: 1px solid red; */
 }
 
 .logo {
@@ -16,9 +18,11 @@
 
 .linksDiv {
   color: white;
-  gap: 20px;
+  gap: 35px;
   font-weight: 700;
   font-size: 17px;
+  /* border: 1px solid green; */
+  align-items: center;
 }
 
 .locationfield {

@@ -34,15 +34,15 @@ const Footer = () => {
       </div>
       {/* ----------------------------footer_mid--------------------------------- */}
       <div className="footer_mid">
-        <div class="Footer__basicRow2">
+        <div className="Footer__basicRow2">
           <p style={{ color: "white", textAlign: "left" }}>
             <br />
             Serving in
           </p>
           <br />
-          <ul class="Footer__countriesRoot">
+          <ul className="Footer__countriesRoot">
             <li>
-              <span class="Footer__countryName">USA</span>
+              <span className="Footer__countryName">USA</span>
               <ul>
                 <li>Austin</li>
                 <li>Dallas</li>
@@ -51,7 +51,7 @@ const Footer = () => {
             </li>
             <li>
               <span>IND</span>
-              <ul class="Footer__countryName_ind">
+              <ul className="Footer__countryName_ind">
                 <li>Agra</li>
                 <li>Ahmedabad</li>
                 <li>Alwar</li>
@@ -109,7 +109,7 @@ const Footer = () => {
               </ul>
             </li>
             <li>
-              <span class="Footer__countryName--3Czg4">UAE</span>
+              <span className="Footer__countryName--3Czg4">UAE</span>
               <ul>
                 <li>Abu Dhabi</li>
                 <li>Dubai</li>
@@ -117,20 +117,20 @@ const Footer = () => {
               </ul>
             </li>
             <li>
-              <span class="Footer__countryName--3Czg4">AUS</span>
+              <span className="Footer__countryName--3Czg4">AUS</span>
               <ul>
                 <li>Melbourne</li>
                 <li>Sydney</li>
               </ul>
             </li>
             <li>
-              <span class="Footer__countryName--3Czg4">SGP</span>
+              <span className="Footer__countryName--3Czg4">SGP</span>
               <ul>
                 <li>Singapore</li>
               </ul>
             </li>
             <li>
-              <span class="Footer__countryName--3Czg4">KSA</span>
+              <span className="Footer__countryName--3Czg4">KSA</span>
               <ul>
                 <li>Jeddah</li>
                 <li>Riyadh</li>

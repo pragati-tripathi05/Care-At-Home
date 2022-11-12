@@ -8,18 +8,12 @@ import {
   loginSuccessAction,
 } from "../../Redux/action";
 import { useNavigate } from "react-router-dom";
-import { store } from "../../Redux/store";
 
-function Login() {
-  const toast = useToast();
+function Login({onClose}) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-  const auth = useSelector((state) => {
-    return { isAuth: state.token };
-  });
-  console.log(auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -37,14 +31,9 @@ function Login() {
       .post("http://localhost:4000/login", payload)
       .then((res) => {
         console.log(res.data);
-        alert(res.data.msg);
-        // toast({
-        //   title: 'Login Successfull!',
-        //   status: 'success',
-        //   duration: 2000,
-        //   isClosable: true,
-        // })
-        dispatch(loginSuccessAction(res.data.token));
+        // alert(res.data.msg);
+        dispatch(loginSuccessAction(res.data));
+        onClose()
         navigate("/");
       })
       .catch((err) => {
@@ -60,7 +49,7 @@ function Login() {
   };
   return (
     <form onSubmit={handleSubmit} style={{ width: "90%", textAlign: "center" }}>
-      <Heading>Login</Heading>
+      {/* <Heading>Login</Heading> */}
       <br />
       <Input
         placeholder="email"
@@ -68,6 +57,7 @@ function Login() {
         w={"100%"}
         mb={5}
         name="email"
+        required="required"
         value={formData.email}
         onChange={handleChange}
       />
@@ -78,11 +68,12 @@ function Login() {
         w={"100%"}
         mb={5}
         name="password"
+        required="required"
         value={formData.password}
         onChange={handleChange}
       />
       <br />
-      <Input type="submit" value="Login" w="100px" />
+      <Input type="submit" value="Login" w="100px" color={"white"} bg="black"/>
     </form>
   );
 }
