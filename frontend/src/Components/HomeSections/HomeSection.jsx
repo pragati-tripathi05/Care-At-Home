@@ -30,12 +30,14 @@ import { CiLocationOn } from "react-icons/ci";
 import { IoIosArrowForward } from "react-icons/io";
 import {Link} from "react-router-dom"
 import Login from "../Auth/Login";
-import Signup from "../Auth/Signup";
 import { SignupDrawer } from "../Auth/SignupDrawer";
+import { saveData } from "../../utils/localStorage";
 const HomeSection = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navbarRef = React.useRef();
   const [isVisible, setisVisible] = useState();
+  
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
@@ -44,11 +46,51 @@ const HomeSection = () => {
     observer.observe(navbarRef.current);
   }, []);
 
+  // **************************Getting Location**********************
+  const [cityname, setCityname] = useState("Delhi NCR");
+  const gettingLocation = ()=> {
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0,
+    };
+
+    const success = (position)=> {
+      let crd = position.coords;
+
+      console.log("Your current position is:");
+      console.log(`Latitude : ${crd.latitude}`);
+      console.log(`Longitude: ${crd.longitude}`);
+      console.log(`More or less ${crd.accuracy} meters.`);
+      getDataLocation(crd.latitude, crd.longitude);
+    }
+
+    const error = (err) => {
+
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+  }
+  function getDataLocation(lat, lon) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=d11e2713cdace67cd72e441e55b790d4`;
+    fetch(url)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (res) {
+        console.log(res);
+        setCityname(res.name);
+        saveData("location",res.name);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }
   return (
     <Box ref={navbarRef}>
       <Box className={styles.homeSection}>
         {/* Top Navbar Starts */}
-        {/* TODO:- Login/Signup functionality */}
         <Flex className={styles.topNavbar}>
           <Image
             className={styles.logo}
@@ -67,7 +109,7 @@ const HomeSection = () => {
               <DrawerContent>
                 <DrawerCloseButton />
                 <DrawerHeader borderBottomWidth="1px">
-                  Create a new account
+                  Login/SignUp
                 </DrawerHeader>
                 <DrawerBody>
                   <Stack spacing="24px">
@@ -94,14 +136,14 @@ const HomeSection = () => {
           </Heading>
           <Flex gap="25px" w="50%" m="auto">
             <Popover>
-              <PopoverTrigger>
-                <Flex className={styles.locationfield}>
+              <PopoverTrigger >
+                <Flex onClick={()=>gettingLocation()} className={styles.locationfield}>
                   <Image
                     width="20px"
                     src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep/t_medium_res_template/images/supply/partner-app-supply/1661338258375-6c99b1.png"
                     alt="country_flag"
                   />
-                  <Text>Delhi NCR</Text>
+                  <Text>{cityname}</Text>
                   <TiArrowSortedDown />
                 </Flex>
               </PopoverTrigger>
@@ -183,7 +225,7 @@ const HomeSection = () => {
         {/* Search Section End */}
         {/* Service Section-1 Cards Starts */}
         <Flex justify="center" className={styles.serviceCardSection1}>
-          <Link to="/product"><Box className={styles.serviceCard}>
+          <Link to="/salon"><Box className={styles.serviceCard}>
             <Box>
               <Image
                 width="32px"
@@ -192,8 +234,9 @@ const HomeSection = () => {
               />
             </Box>
             <Text fontSize="13px">Salon for women</Text>
-          </Box></Link>
-          <Box className={styles.serviceCard}>
+          </Box>
+          </Link>
+          <Link to="/womenhair"><Box className={styles.serviceCard}>
             <Box>
               <Image
                 width="32px"
@@ -202,17 +245,8 @@ const HomeSection = () => {
               />
             </Box>
             <Text fontSize="13px">Hair, Skin & nails</Text>
-          </Box>
-          <Box className={styles.serviceCard}>
-            <Box>
-              <Image
-                width="32px"
-                src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/categories/category_v2/category_1312fb60.png"
-                alt="services_image"
-              />
-            </Box>
-            <Text fontSize="13px">Women's therapies</Text>
-          </Box>
+          </Box></Link>
+          <Link></Link>
           <Box className={styles.serviceCard}>
             <Box>
               <Image
