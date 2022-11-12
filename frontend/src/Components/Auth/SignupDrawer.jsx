@@ -32,7 +32,7 @@ export const SignupDrawer = () => {
           <DrawerBody>
             <Stack spacing="24px">
               <Box>
-                <Signup />
+                <Signup onClose ={onClose}/>
               </Box>
             </Stack>
           </DrawerBody>
