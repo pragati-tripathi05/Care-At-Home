@@ -9,7 +9,7 @@ const authentication  = (req,res,next)=> {
     const decoded = jwt.verify(token , process.env.secret_key)
     const userId = decoded.userId
     if(decoded){
-        req.body.userId = userId
+        req.body.userId = decoded.id
         next()
     }
     else{
