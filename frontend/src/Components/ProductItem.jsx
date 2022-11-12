@@ -35,11 +35,13 @@ const ProductItem = ({
   benefitssec,
 }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   const token = useSelector((state) => {
     return state.reducer.token;
   });
   const toast = useToast();
   const navigate = useNavigate();
+
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -48,6 +50,7 @@ const ProductItem = ({
   const handleAddtoCart = () => {
     const payload = {
       title: description,
+
       price: price,
     };
     axios
@@ -68,6 +71,8 @@ const ProductItem = ({
         }, 1000);
       });
   };
+
+ 
   return (
     <Box className={styles.productItemDiv} onClick={onOpen}>
       {/* Modal Start */}

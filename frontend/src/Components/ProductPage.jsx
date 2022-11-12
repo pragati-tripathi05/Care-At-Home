@@ -9,19 +9,22 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import ProductItem from "./ProductItem";
-import styles from "./ProductPage.module.css";
+// import styles from "./ProductPage.module.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { accessData } from "../utils/localStorage";
 
-const ProductPage = () => {
+const ProductPage = ({url,heading,rating}) => {
   const [data, setData] = useState([]);
+   const token = JSON.parse(localStorage.getItem("token"));
   useEffect(() => {
-    axios("http://localhost:4000/salon")
+    axios(url)
       .then((res) => {
         // console.log(res.data);
         setData(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [url]);
 
   return (
     <Box>
@@ -61,7 +64,7 @@ const ProductPage = () => {
               </Button>
             </Flex>
             <Flex>
-              <Heading as="h1">Salon Prime</Heading>
+              <Heading as="h1">{heading}</Heading>
             </Flex>
             <Flex fontSize="12px">
               <svg
@@ -75,7 +78,7 @@ const ProductPage = () => {
                   fill="#545454"
                 ></path>
               </svg>
-              <Text> 4.76(978k)</Text>
+              <Text>{rating}</Text>
             </Flex>
             <Flex>
               <svg
@@ -92,7 +95,7 @@ const ProductPage = () => {
                 ></path>
               </svg>
               <Text fontSize="12px">
-                569,291 bookings in Delhi NCR this year{" "}
+                {`569,291 bookings in ${accessData("location")} this year`}
               </Text>
             </Flex>
           </Stack>
@@ -282,6 +285,9 @@ const ProductPage = () => {
               </Flex>
             </Stack>
           </Flex>
+          {token?(<Flex w="100%" justify="end" pr="2rem">
+            <Link to="/cart"><Button colorScheme='purple' size="lg">View Cart</Button></Link>
+          </Flex>):""}
         </VStack>
       </Flex>
       {/* Products End */}
