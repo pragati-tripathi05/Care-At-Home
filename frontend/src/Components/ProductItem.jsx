@@ -14,10 +14,12 @@ import {
   useDisclosure,
   VStack,
 } from "@chakra-ui/react";
+import axios from "axios";
 import React from "react";
 import styles from "./ProductItem.module.css";
 
 const ProductItem = ({packageName,
+  prodId,
 description,
 rating,
 views,
@@ -27,6 +29,25 @@ feature,
 image,
 benefits,benefitssec}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const token = JSON.parse(localStorage.getItem("token"))
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const handleAddtoCart =()=>{
+    const payload = {
+      title: description,
+      price: price
+    }
+    axios.post("http://localhost:4000/addtocart",payload,config)
+    .then(res => {
+      console.log(res.data)
+    })
+    .catch(err =>{
+      console.log(err)
+    })
+  }
   return (
     <Box className={styles.productItemDiv} onClick={onOpen}>
       {/* Modal Start */}
@@ -99,7 +120,7 @@ benefits,benefitssec}) => {
             src={image}
             alt="serviceImage"
           />):""}
-          <Button color="rgb(110, 66, 229)" variant="outline" size="sm">
+          <Button color="rgb(110, 66, 229)" variant="outline" size="sm" onClick={handleAddtoCart}>
             Add
           </Button>
           <Text color="rgb(117, 117, 117)" fontSize="12px">
