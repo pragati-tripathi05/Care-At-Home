@@ -1,0 +1,33 @@
+.contain{
+    text-align: left;
+    background-color: #e5e5e5 ;
+    margin: 0% 22% 1% 22%;
+}
+
+.title{
+    padding-top: 2% 0%;
+    position: fixed;
+    top: 0%;
+    left: 22%;
+    width: 56%;
+}
+
+.title p{
+    font-size: 22px;
+    font-weight: 700;
+    background-color: white;
+}
+
+.title .amount{
+    font-size: 12px;
+    color: gray;
+}
+
+.card{
+    background-color: white;
+    padding: 3%;
+}
+
+.heading{
+    background-color: white;
+}
