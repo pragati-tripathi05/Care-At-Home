@@ -23,6 +23,10 @@ const userSignup = async (req, res) => {
 const userLogin = async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email: email });
+  if(user === null){
+    res.status(401).send("Wrong credentials");
+  }
+  else{
   const hash = user.password;
   const name = user.name;
   const userId = user._id;
@@ -34,6 +38,7 @@ const userLogin = async (req, res) => {
       res.status(401).send("Wrong credentials");
     }
   });
+}
 };
 
 module.exports = { userSignup, userLogin };

@@ -1,4 +1,4 @@
-import { Button, Heading, Input } from "@chakra-ui/react";
+import { Button, Heading, Input, useToast } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from  "axios"
 
@@ -8,6 +8,7 @@ function Signup({onClose}) {
     email: "",
     password: "",
   });
+  const toast = useToast()
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -23,8 +24,14 @@ function Signup({onClose}) {
       .post("http://localhost:4000/signup", payload)
       .then((res) => {
         console.log(res.data);
-        alert(res.data);
         onClose()
+        toast({
+          title: res.data,
+          status: "success",
+          duration: 2000,
+          isClosable: true,
+          position: "top-left"
+        });
       })
       .catch((err) => {
         console.log(err);
