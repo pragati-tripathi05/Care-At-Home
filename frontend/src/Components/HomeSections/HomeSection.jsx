@@ -183,7 +183,7 @@ const HomeSection = () => {
         {/* Search Section End */}
         {/* Service Section-1 Cards Starts */}
         <Flex justify="center" className={styles.serviceCardSection1}>
-          <Box className={styles.serviceCard}>
+          <Link to="/product"><Box className={styles.serviceCard}>
             <Box>
               <Image
                 width="32px"
@@ -192,7 +192,7 @@ const HomeSection = () => {
               />
             </Box>
             <Text fontSize="13px">Salon for women</Text>
-          </Box>
+          </Box></Link>
           <Box className={styles.serviceCard}>
             <Box>
               <Image

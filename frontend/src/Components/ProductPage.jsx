@@ -138,6 +138,7 @@ const ProductPage = () => {
           {data.map((elem) => (
             <ProductItem
               key={elem._id}
+              prodId = {elem._id}
               packageName={elem.package}
               description={elem.description}
               rating={elem.rating}
