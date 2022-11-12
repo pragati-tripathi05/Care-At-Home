@@ -34,6 +34,6 @@ psychotic-yam-1841
 
 ## Glimpse of our website
 
-![Homepage]()
-![Homepage]()
-![Homepage]()
+![Homepage](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/1.png)
+![Homepage](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/2.png)
+![Homepage](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/5.png)
