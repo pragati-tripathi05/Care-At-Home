@@ -7,20 +7,34 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ProductItem from "./ProductItem";
 import styles from "./ProductPage.module.css";
 import axios from "axios";
 
 const ProductPage = () => {
+  const [data, setData] = useState([]);
   useEffect(() => {
-    axios("http://localhost:4000/salon").then(res=> console.log(res.data)).catch(err=> console.log(err))
-  }, [])
-  
+    axios("http://localhost:4000/salon")
+      .then((res) => {
+        console.log(res.data);
+        setData(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <Box>
       {/* Product's Page Top Section Start */}
-      <Flex className={styles.productsPageTopDiv}>
+      <Flex
+        // className={styles.productsPageTopDiv}
+        height="70vh"
+        width="80%"
+        m="auto"
+        wrap="wrap"
+        justify="space-between"
+        p="3rem 0"
+      >
         <Flex direction="column" align="center" justify="center">
           <Stack spacing="0.5rem">
             <Flex>
@@ -83,7 +97,12 @@ const ProductPage = () => {
             </Flex>
           </Stack>
         </Flex>
-        <Flex className={styles.videoDiv}>
+        <Flex
+          // className={styles.videoDiv}
+          flex="0.7"
+          overflow="hidden"
+          borderRadius="5px"
+        >
           <iframe
             width="100%"
             src="https://www.youtube.com/embed/CLdJNMQBLOI"
@@ -103,22 +122,49 @@ const ProductPage = () => {
       {/* Product's Page Top Section End */}
       {/* Products Start */}
       <Flex
-        className={styles.productsPageBottomDiv}
+        // className={styles.productsPageBottomDiv}
+        height="50vh"
+        justify="space-between"
+        borderTop="1px solid gainsboro"
+        width="80%"
+        m="1rem auto"
       >
         <VStack
-          className={styles.productsDiv}
+          // className={styles.productsDiv}
+          overflowY="scroll"
+          width="60%"
+          borderRight="1px solid gainsboro"
         >
-          <ProductItem />
-          <ProductItem />
-          <ProductItem />
-          <ProductItem />
-          <ProductItem />
-          <ProductItem />
-          <ProductItem />
+          {data.map((elem) => (
+            <ProductItem
+              key={elem._id}
+              prodId = {elem._id}
+              packageName={elem.package}
+              description={elem.description}
+              rating={elem.rating}
+              views={elem.views}
+              price={elem.price}
+              time={elem.time}
+              feature={elem.feature}
+              image={elem.image}
+              benefits={elem.benefits}
+              benefitssec={elem.benefitssec}
+            />
+          ))}
         </VStack>
-        <VStack className={styles.offersDiv}>
+        <VStack
+          // className={styles.offersDiv}
+          width="40%"
+          p="1rem 1rem 1rem 3rem"
+        >
           <Flex
-           className={styles.offersItem}
+            // className={styles.offersItem}
+            width="100%"
+            gap="0.5rem"
+            backgroundColor="rgb(245, 245, 245)"
+            cursor="pointer"
+            borderRadius="5px"
+            p="10px 5rem 10px 0"
           >
             <Box p="2px 0 0 10px">
               <svg
@@ -144,7 +190,13 @@ const ProductPage = () => {
             </Stack>
           </Flex>
           <Flex
-           className={styles.offersItem}
+            // className={styles.offersItem}
+            width="100%"
+            gap="0.5rem"
+            backgroundColor="rgb(245, 245, 245)"
+            cursor="pointer"
+            borderRadius="5px"
+            p="10px 5rem 10px 0"
           >
             <Box p="2px 0 0 10px">
               <svg
@@ -169,7 +221,13 @@ const ProductPage = () => {
             </Stack>
           </Flex>
           <Flex
-            className={styles.offersItem}
+            // className={styles.offersItem}
+            width="100%"
+            gap="0.5rem"
+            backgroundColor="rgb(245, 245, 245)"
+            cursor="pointer"
+            borderRadius="5px"
+            p="10px 5rem 10px 0"
           >
             <Box p="2px 0 0 10px">
               <svg
@@ -194,7 +252,13 @@ const ProductPage = () => {
             </Stack>
           </Flex>
           <Flex
-           className={styles.offersItem}
+            //  className={styles.offersItem}
+            width="100%"
+            gap="0.5rem"
+            backgroundColor="rgb(245, 245, 245)"
+            cursor="pointer"
+            borderRadius="5px"
+            p="10px 5rem 10px 0"
           >
             <Box p="2px 0 0 10px">
               <svg

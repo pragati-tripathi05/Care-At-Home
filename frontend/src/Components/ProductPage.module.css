@@ -1,4 +1,4 @@
-.productsPageTopDiv{
+.productsPageTopDiv {
     height: 70vh;
     width: 80%;
     margin: auto;
@@ -6,36 +6,40 @@
     justify-content: space-between;
     padding: 3rem 0;
 }
-.videoDiv{
+
+.videoDiv {
     flex: 0.7;
     overflow: hidden;
     border-radius: 5px;
 }
-.productsPageBottomDiv{
+
+.productsPageBottomDiv {
     height: 50vh;
     justify-content: space-between;
     border-top: 1px solid gainsboro;
     width: 80%;
     margin: 1rem auto;
 }
-.productsDiv{
+
+.productsDiv {
     overflow-y: scroll;
     width: 60%;
-    border-right:1px solid gainsboro ;
+    border-right: 1px solid gainsboro;
 }
-.productsDiv::-webkit-scrollbar{
+
+/* .productsDiv::-webkit-scrollbar{
     display: none;
-}
-.offersDiv{
+} */
+.offersDiv {
     width: 40%;
     padding: 1rem 1rem 1rem 3rem;
 }
-.offersItem{
+
+.offersItem {
     width: 100%;
     gap: 0.5rem;
-    background-color:rgb(245, 245, 245) ;
+    background-color: rgb(245, 245, 245);
     cursor: pointer;
     border-radius: 5px;
     padding: 10px 5rem 10px 0;
 }
- 

@@ -12,7 +12,6 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-  Link,
   Popover,
   PopoverArrow,
   PopoverBody,
@@ -29,6 +28,10 @@ import { TiArrowSortedDown } from "react-icons/ti";
 import { AiOutlineSearch } from "react-icons/ai";
 import { CiLocationOn } from "react-icons/ci";
 import { IoIosArrowForward } from "react-icons/io";
+import {Link} from "react-router-dom"
+import Login from "../Auth/Login";
+import Signup from "../Auth/Signup";
+import { SignupDrawer } from "../Auth/SignupDrawer";
 const HomeSection = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navbarRef = React.useRef();
@@ -69,10 +72,9 @@ const HomeSection = () => {
                 <DrawerBody>
                   <Stack spacing="24px">
                     <Box>
-                      <Input
-                        id="username"
-                        placeholder="Please enter user name"
-                      />
+                      <Login />
+                      <br />
+                      <Box display="flex" justifyContent="center" alignItems="center" gap="20px">Don't have an account ? <SignupDrawer /></Box>
                     </Box>
                   </Stack>
                 </DrawerBody>
@@ -181,7 +183,7 @@ const HomeSection = () => {
         {/* Search Section End */}
         {/* Service Section-1 Cards Starts */}
         <Flex justify="center" className={styles.serviceCardSection1}>
-          <Box className={styles.serviceCard}>
+          <Link to="/product"><Box className={styles.serviceCard}>
             <Box>
               <Image
                 width="32px"
@@ -190,7 +192,7 @@ const HomeSection = () => {
               />
             </Box>
             <Text fontSize="13px">Salon for women</Text>
-          </Box>
+          </Box></Link>
           <Box className={styles.serviceCard}>
             <Box>
               <Image
