@@ -1,10 +1,7 @@
 psychotic-yam-1841
 
-## <h2 align="center">Urban Company Clone</h2>
-
-## <h1 align="center">  **CareAtHome**</h1>
-
-<br />
+<h2 align="center">Urban Company Clone</h2>
+ <h1 align="center">  CareAtHome</h1>
 
 <h2 align="center"><a href=""><strong>Deployed site »</strong></a></h2>
 <h2 align="center"><a href=""><strong>Deployed backend »</strong></a></h2>
