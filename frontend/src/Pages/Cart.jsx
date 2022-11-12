@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import styles from "./Cart.module.css";
 import axios from "axios";
 
-const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNmJlZGFjMmVlNDcyMmYwYTc3YTBhZCIsImlhdCI6MTY2ODEwMDI2N30.19R3o4jpfj_gldcf1B_prcrUWFv8cbvFYLfxNaURXqI";
+const token = JSON.parse(localStorage.getItem("token"))
+  // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNmJlZGFjMmVlNDcyMmYwYTc3YTBhZCIsImlhdCI6MTY2ODEwMDI2N30.19R3o4jpfj_gldcf1B_prcrUWFv8cbvFYLfxNaURXqI";
 function Cart() {
   const [cartData, setCartData] = useState([]);
   const [total, setTotal] = useState(0);

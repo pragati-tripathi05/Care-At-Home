@@ -31,3 +31,15 @@
 .heading{
     background-color: white;
 }
+
+.home{
+    margin-left: 40%;
+    font-weight: bold;
+    color: white;
+    background-color: #6e42e5;
+    margin-bottom: 2%;
+}
+
+.home:hover{
+    background-color: #5e3dc2;
+}

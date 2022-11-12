@@ -113,8 +113,10 @@ const Payments = () => {
           </Box>
         </VStack>
   
-<br/>
-<Button>Pay</Button>
+        <br/>
+        <Link to="/">
+          <Button className="home">Back to Home</Button>
+        </Link>
       </div>
     </div>
   )

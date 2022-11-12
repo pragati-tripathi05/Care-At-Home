@@ -8,6 +8,7 @@ import ProductPage from "../Components/ProductPage";
 import Cart from "../Pages/Cart";
 import Payments from "../Pages/Payments";
 
+
 const MainRoutes = () => {
   return (
     <>
