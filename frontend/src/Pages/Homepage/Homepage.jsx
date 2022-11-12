@@ -1,4 +1,5 @@
 import React from "react";
+import "./Homepage.css";
 import Footer from "../../Components/Footer/Footer";
 import SliderOne from "../../Components/HomepageSliders/SliderOne";
 import Appliances from "../../Components/HomeSections/Appliances";
@@ -16,36 +17,33 @@ const Homepage = () => {
       <HomeSection />
       <div style={{ backgroundColor: "#f2f4f6" }}>
         <br />
-        <div style={{ padding: "3%", backgroundColor: "white" }}>
+        <div className="outlines">
           <SliderOne />
         </div>
       </div>
       <div style={{ backgroundColor: "#f2f4f6" }}>
         <br />
-        {/* <div style={{ padding:"3%", backgroundColor:"white"}}>
-     <SliderOne/>
-     </div> */}
-        <div style={{ padding: "1%", backgroundColor: "white" }}>
+        <div className="outlines" >
           <NewCateg />
         </div>
         <br />
-        <div style={{ padding: "1%", backgroundColor: "white" }}>
+        <div  className="outlines" >
           <Appliances />
         </div>
         <br />
-        <div style={{ padding: "1%", backgroundColor: "white" }}>
+        <div  className="outlines" >
           <SsmServices />
         </div>
         <br />
-        <div style={{ padding: "1%", backgroundColor: "white" }}>
+        <div  className="outlines" >
           <PestControl />
         </div>
         <br/>
-        <div style={{ padding: "1%", backgroundColor: "white" }}>
+        <div  className="outlines" >
           <Luxury/>
         </div>
         <br/>
-        <div style={{ padding: "1%", backgroundColor: "white" }}>
+        <div  className="outlines" >
           <Repairs />
         </div>
         <br/>

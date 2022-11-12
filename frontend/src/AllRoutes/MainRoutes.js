@@ -6,6 +6,8 @@ import Signup from "../Components/Auth/Signup";
 import Login from "../Components/Auth/Login";
 import ProductPage from "../Components/ProductPage";
 import Cart from "../Pages/Cart";
+import Payments from "../Pages/Payments";
+
 
 const MainRoutes = () => {
   return (
@@ -17,6 +19,7 @@ const MainRoutes = () => {
         <Route path="/booking" element={<Booking />} />
         <Route path="/product" element={<ProductPage />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/payments" element={<Payments />} />
       </Routes>
     </>
   );
