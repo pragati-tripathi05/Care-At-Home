@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 
 const Payments = () => {
   return (
-    <>
-      <div className='container'>
+    <div style={{backgroundColor:"#e5e5e5"}}>
+      <div className='contain'>
         <Box className=  'title'>
-          <Stack direction={['column', 'row']} spacing='20px'  align='stretch' style={{backgroundColor:"white"}}>
+          <Stack direction={['column', 'row']} spacing='25px'  align='stretch' style={{backgroundColor:"white"}}  p={1}>
             <Box p={1} style={{backgroundColor:"white"}}>
               <Link to="/cart">
                 <ArrowBackIcon  style={{backgroundColor:"white"}} />
@@ -22,6 +22,8 @@ const Payments = () => {
           </Stack>
         </Box>
         <StackDivider borderColor='gray.200' />
+      <br/>
+      <br/>
       <br/>
   
         <VStack spacing={2} align='stretch'  style={{marginTop:"1%"}}>
@@ -114,7 +116,7 @@ const Payments = () => {
 <br/>
 <Button>Pay</Button>
       </div>
-    </>
+    </div>
   )
 }
 
