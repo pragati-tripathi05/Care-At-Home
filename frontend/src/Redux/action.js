@@ -1,28 +1,38 @@
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT } from "./actionTypes"
+import {
+  LOGIN_FAILURE,
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGOUT,
+} from "./actionTypes";
 
-const loginRequestAction = ()=>{
-    return {
-        type: LOGIN_REQUEST
-    }
-}
+const loginRequestAction = () => {
+  return {
+    type: LOGIN_REQUEST,
+  };
+};
 
-const loginSuccessAction = (payload)=>{
-    return {
-        type: LOGIN_SUCCESS,
-        payload
-    }
-}
+const loginSuccessAction = (payload) => {
+  return {
+    type: LOGIN_SUCCESS,
+    payload,
+  };
+};
 
-const loginFailureAction = ()=>{
-    return {
-        type: LOGIN_FAILURE
-    }
-}
+const loginFailureAction = () => {
+  return {
+    type: LOGIN_FAILURE,
+  };
+};
 
-const logoutAction = ()=>{
-    return{
-        type: LOGOUT
-    }
-}
+const logoutAction = () => {
+  return {
+    type: LOGOUT,
+  };
+};
 
-export {loginFailureAction,loginRequestAction,loginSuccessAction,logoutAction}
+export {
+  loginFailureAction,
+  loginRequestAction,
+  loginSuccessAction,
+  logoutAction,
+};
