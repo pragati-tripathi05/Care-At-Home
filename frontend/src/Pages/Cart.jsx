@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./Cart.module.css";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 
 function Cart() {
@@ -132,7 +133,7 @@ function Cart() {
           <Box>
             <b>Total</b> <b>{total - 218 - 150 + 69 + 299}</b>
           </Box>
-          <Button ml="65%" bg="rgb(110, 66, 229)" color={"white"}>{` Go to Payments`}</Button>
+         <Link to="/payments"> <Button ml="65%" bg="rgb(110, 66, 229)" color={"white"}>{` Go to Payments`}</Button></Link>
         </Box>
         
       </Box>
