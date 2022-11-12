@@ -6,8 +6,15 @@ const bookingData = async (req, res) => {
   res.send({ history: bookingHistory });
 };
 
+const addBookingData = async (req, res) => {
+  const { title, price, quantity, userId } = req.body;
+  const data = new booking({ title, price, quantity, userId });
+  await data.save();
+  res.send("Data added to History tab");
+};
+
 module.exports = {
-  bookingData,
+  bookingData, addBookingData
 };
 
 // app.get("/getCalculation", authentication, async (req, res) => {

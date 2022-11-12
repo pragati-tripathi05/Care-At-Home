@@ -1,7 +1,7 @@
 import * as types from "./actionTypes";
 
 const initialState = {
-  bookings: [],
+  data: [],
   isLoading: false,
   isError: false,
 };
@@ -20,7 +20,7 @@ const reducer = (state = initialState, action) => {
       case types.GET_BOOKING_SUCCESS:
         return {
           ...state,
-          bookings: payload,
+          data: payload,
           isLoading: false,
           isError: false,
         };
