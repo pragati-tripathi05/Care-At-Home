@@ -3,8 +3,10 @@ import React from 'react';
 import "./Payments.css";
 import {  ArrowBackIcon,ChevronRightIcon } from '@chakra-ui/icons'
 import { Link } from 'react-router-dom';
+import { accessData } from '../utils/localStorage';
 
 const Payments = () => {
+  const total = accessData("total")
   return (
     <div style={{backgroundColor:"#e5e5e5"}}>
       <div className='contain'>
@@ -17,7 +19,7 @@ const Payments = () => {
             </Box>
             <Box  align='stretch'>
               <p>Select payment method</p>
-              <Text className='amount'>Amount to pay : ₹ 1,398</Text>
+              <Text className='amount'>Amount to pay : ₹ {total}</Text>
             </Box>
           </Stack>
         </Box>

@@ -1,5 +1,11 @@
-*{
+* {
     font-family: 'Roboto', sans-serif;
+}
+
+#cartwindow {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
 }
 
 #cartbox {
@@ -13,15 +19,17 @@
     text-align: left;
 }
 
-#cartbox>div {
-    /* border: 1px solid green; */
-    height: 100%;
 
+#cartbox>div {
+    /* border: 1px solid green;  */
+    height: 100%;
+}
+#cartbox>div:nth-child(1){
+    width: 58%;
 }
 
 .cartprod {
-    /* border-top: 1px solid grey;
-    border-bottom: 1px solid grey; */
+    /* border: 1px solid blue; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,7 +53,9 @@
     position: absolute;
     right: 20%;
 }
-
+#qtybox:hover{
+    cursor: pointer;
+}
 .removeBut {
     padding-left: 18px;
     padding-right: 18px;
@@ -55,12 +65,77 @@
     color: rgb(110, 66, 229);
     border-radius: 10px;
 }
-#paySum{
+
+#paySum {
     padding: 20px;
+    width: 38%;
 }
-#paySum>div{
+
+#paySum>div {
     display: flex;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
     padding: 10px;
 }
+
+@media (max-width: 500px) {
+    #cartwindow {
+        width: 95%;
+    }
+    #cartbox {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 40px;
+        width: 100%;
+        margin: auto;
+    }
+    #cartbox>div:nth-child(1){
+        width: 100%;
+    }
+    .cartprod {
+        padding: 5px 10px;
+        margin-bottom: 20px;
+    }
+    #paySum {
+        padding: 10px;
+        width: 100%;
+    }
+    #qtybox {
+        gap: 20px;
+        padding: 0px 10px;
+        right: 20%;
+    }
+    
+}
+
+@media (min-width: 30em) and (max-width: 50em) {
+    #cartwindow {
+        width: 80%;
+    }
+    #cartbox {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 40px;
+        width: 100%;
+        margin: auto;
+    }
+    #cartbox>div:nth-child(1){
+        width: 100%;
+    }
+    .cartprod {
+        padding: 5px 10px;
+        margin-bottom: 20px;
+    }
+    #paySum {
+        padding: 10px;
+        width: 100%;
+    }
+    #qtybox {
+        gap: 20px;
+        padding: 0px 10px;
+        right: 20%;
+    }
+    
+  }
