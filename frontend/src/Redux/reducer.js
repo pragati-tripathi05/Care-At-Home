@@ -13,7 +13,7 @@ const initState = {
   token: accessData("token") || null,
   name: accessData("name") || null
 };
-console.log(initState.isAuth)
+// console.log(initState.isAuth)
 export const reducer = (state = initState, action) => {
   switch (action.type) {
     case LOGIN_REQUEST: {

@@ -39,9 +39,9 @@ app.use("/womenhair", WomenhairRouter);
 
 app.use("/salon", salonRouter);
 
-// app.get("/", (req, res) => {
-//   res.send("welcome to our  api");
-// });
+app.get("/", (req, res) => {
+  res.send("welcome to our  api");
+});
 
 app.get(
   "/auth/google",
