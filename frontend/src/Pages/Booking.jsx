@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { Link, Navigate } from "react-router-dom";
 const Booking = () => {
+
   return (
     <>
       <div className="mybooking_div">
