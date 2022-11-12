@@ -1,5 +1,7 @@
 import {
+  Avatar,
   Box,
+  Button,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -28,14 +30,26 @@ import { TiArrowSortedDown } from "react-icons/ti";
 import { AiOutlineSearch } from "react-icons/ai";
 import { CiLocationOn } from "react-icons/ci";
 import { IoIosArrowForward } from "react-icons/io";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import Login from "../Auth/Login";
 import Signup from "../Auth/Signup";
 import { SignupDrawer } from "../Auth/SignupDrawer";
+import { accessData } from "../../utils/localStorage";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutAction } from "../../Redux/action";
 const HomeSection = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navbarRef = React.useRef();
   const [isVisible, setisVisible] = useState();
+  const isAuth = accessData("isAuth");
+  const data = useSelector((state) => {
+    return state.reducer;
+  });
+  // console.log(data);
+  const dispatch = useDispatch()
+  const handleLogout = ()=>{
+    dispatch(logoutAction())
+  }
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
@@ -58,23 +72,52 @@ const HomeSection = () => {
           <Flex className={styles.linksDiv}>
             <Link>Blog</Link>
             <Link>Register As A Professional</Link>
-            <Text style={{ cursor: "pointer" }} onClick={onOpen}>
-              Login/SignUp
-            </Text>
+            {/* <Text style={{ cursor: "pointer" }} onClick={onOpen}> */}
+              {!data.isAuth ? (
+                <Text style={{ cursor: "pointer" }} onClick={onOpen}> Login/SignUp </Text>
+              ) : (
+                <Box
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                  gap="5px"
+                >
+                  {" "}
+                  <Avatar
+                    bg="blackAlpha.800"
+                    name={data.name}
+                    color="white"
+                    src="https://bit.ly/broken-link"
+                    size="sm"
+                  />
+                  <b>{data.name}</b>{" "}
+                  <Button bg={"black"} ml="30px" onClick={handleLogout}  className="black-button">
+                    Logout
+                  </Button>
+                </Box>
+              )}
+            {/* </Text> */}
             {/* Drawer Start */}
             <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
               <DrawerOverlay />
               <DrawerContent>
                 <DrawerCloseButton />
                 <DrawerHeader borderBottomWidth="1px">
-                  Create a new account
+                  Log in to your account
                 </DrawerHeader>
                 <DrawerBody>
                   <Stack spacing="24px">
                     <Box>
-                      <Login />
+                      <Login onClose= {onClose} />
                       <br />
-                      <Box display="flex" justifyContent="center" alignItems="center" gap="20px">Don't have an account ? <SignupDrawer /></Box>
+                      <Box
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                        gap="20px"
+                      >
+                        Don't have an account ? <SignupDrawer />
+                      </Box>
                     </Box>
                   </Stack>
                 </DrawerBody>
@@ -88,7 +131,12 @@ const HomeSection = () => {
         <Box mt="10rem">
           <Heading
             as="h1"
-            style={{ color: "white", fontSize: "48px", marginBottom: "2.5rem",fontFamily: "Roboto"}}
+            style={{
+              color: "white",
+              fontSize: "48px",
+              marginBottom: "2.5rem",
+              fontFamily: "Roboto",
+            }}
           >
             Home services, on demand.
           </Heading>
@@ -176,23 +224,35 @@ const HomeSection = () => {
             </Box>
           </Flex>
           <Text ml="-1.5rem" mt="0.5rem" color="white" fontSize="16px">
-            <Link><u>Women's Therapies</u></Link>, <Link><u> Salon for men</u></Link>,
-            <Link><u> Men's Therapies</u> </Link> etc
+            <Link>
+              <u>Women's Therapies</u>
+            </Link>
+            ,{" "}
+            <Link>
+              <u> Salon for men</u>
+            </Link>
+            ,
+            <Link>
+              <u> Men's Therapies</u>{" "}
+            </Link>{" "}
+            etc
           </Text>
         </Box>
         {/* Search Section End */}
         {/* Service Section-1 Cards Starts */}
         <Flex justify="center" className={styles.serviceCardSection1}>
-          <Link to="/product"><Box className={styles.serviceCard}>
-            <Box>
-              <Image
-                width="32px"
-                src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/images/growth/home-screen/1609757635235-1a139e.png"
-                alt="services_image"
-              />
+          <Link to="/product">
+            <Box className={styles.serviceCard}>
+              <Box>
+                <Image
+                  width="32px"
+                  src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/images/growth/home-screen/1609757635235-1a139e.png"
+                  alt="services_image"
+                />
+              </Box>
+              <Text fontSize="13px">Salon for women</Text>
             </Box>
-            <Text fontSize="13px">Salon for women</Text>
-          </Box></Link>
+          </Link>
           <Box className={styles.serviceCard}>
             <Box>
               <Image
@@ -238,11 +298,11 @@ const HomeSection = () => {
       </Box>
       {/* Home Services Start */}
       <Box mt="8rem">
-        <Heading as="h1" fontSize="32px" fontFamily= 'Roboto'>
+        <Heading as="h1" fontSize="32px" fontFamily="Roboto">
           Home Services
         </Heading>
         {/* Service Section-2 Cards Starts */}
-        <Flex  className={styles.serviceCardSection2}>
+        <Flex className={styles.serviceCardSection2}>
           <Box className={styles.serviceCard}>
             <Box>
               <Image
@@ -298,57 +358,63 @@ const HomeSection = () => {
       </Box>
       {/* Home Services End */}
       {/* Navbar which opens on scroll start */}
-      {isVisible?"":(<Flex className={styles.scrollNavbar}>
-       <Box flex='2'>
-         <InputGroup
-          style={{
-            backgroundColor: "white",
-            borderRadius: "4px",
-          }}
-        >
-          <InputLeftElement
-            height="100%"
-            pointerEvents="none"
-            children={
-              <AiOutlineSearch style={{ color: "grey", fontSize: "1.5rem" }} />
-            }
-          />
-          <Input type="text" placeholder="Search for services" size="lg" />
-        </InputGroup>
-       </Box>
-        <Flex gap="1rem">
-          <Box className={styles.navbarServiceCards}>
-            <Box>
-              <Image
-                width="28px"
-                src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/categories/category_v2/category_1312fb60.png"
-                alt="services_image"
+      {isVisible ? (
+        ""
+      ) : (
+        <Flex className={styles.scrollNavbar}>
+          <Box flex="2">
+            <InputGroup
+              style={{
+                backgroundColor: "white",
+                borderRadius: "4px",
+              }}
+            >
+              <InputLeftElement
+                height="100%"
+                pointerEvents="none"
+                children={
+                  <AiOutlineSearch
+                    style={{ color: "grey", fontSize: "1.5rem" }}
+                  />
+                }
               />
-            </Box>
-            <Text fontSize="10px">Women's therapies</Text>
+              <Input type="text" placeholder="Search for services" size="lg" />
+            </InputGroup>
           </Box>
-          <Box className={styles.navbarServiceCards}>
-            <Box>
-              <Image
-                width="28px"
-                src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/images/growth/home-screen/1609757629780-2b2187.png"
-                alt="services_image"
-              />
+          <Flex gap="1rem">
+            <Box className={styles.navbarServiceCards}>
+              <Box>
+                <Image
+                  width="28px"
+                  src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/categories/category_v2/category_1312fb60.png"
+                  alt="services_image"
+                />
+              </Box>
+              <Text fontSize="10px">Women's therapies</Text>
             </Box>
-            <Text fontSize="10px">Salon for men</Text>
-          </Box>
-          <Box className={styles.navbarServiceCards}>
-            <Box>
-              <Image
-                width="28px"
-                src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/images/growth/home-screen/1609757731250-ba3308.png"
-                alt="services_image"
-              />
+            <Box className={styles.navbarServiceCards}>
+              <Box>
+                <Image
+                  width="28px"
+                  src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/images/growth/home-screen/1609757629780-2b2187.png"
+                  alt="services_image"
+                />
+              </Box>
+              <Text fontSize="10px">Salon for men</Text>
             </Box>
-            <Text fontSize="10px">Men's therapies</Text>
-          </Box>
+            <Box className={styles.navbarServiceCards}>
+              <Box>
+                <Image
+                  width="28px"
+                  src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/images/growth/home-screen/1609757731250-ba3308.png"
+                  alt="services_image"
+                />
+              </Box>
+              <Text fontSize="10px">Men's therapies</Text>
+            </Box>
+          </Flex>
         </Flex>
-      </Flex>)}
+      )}
       {/* Navbar which opens on scroll end */}
     </Box>
   );

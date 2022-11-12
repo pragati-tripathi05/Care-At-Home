@@ -16,6 +16,7 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import React from "react";
+import { useSelector } from "react-redux";
 import styles from "./ProductItem.module.css";
 
 const ProductItem = ({packageName,
@@ -29,7 +30,9 @@ feature,
 image,
 benefits,benefitssec}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const token = JSON.parse(localStorage.getItem("token"))
+  const token = useSelector((state) => {
+    return state.reducer.token;
+  });
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
