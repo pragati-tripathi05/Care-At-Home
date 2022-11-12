@@ -17,7 +17,7 @@ const Payments = () => {
             </Box>
             <Box  align='stretch'>
               <p>Select payment method</p>
-              <Text className='amount'>Amount to pay : ₹ 1,816</Text>
+              <Text className='amount'>Amount to pay : ₹ 1,398</Text>
             </Box>
           </Stack>
         </Box>

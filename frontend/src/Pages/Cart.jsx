@@ -70,7 +70,7 @@ function Cart() {
 
   return (
     <Box w="80%" m="auto" mt="30px">
-      <Heading textAlign={"left"}>Summary</Heading>
+      <Heading textAlign={"left"}  style={{fontFamily:'Roboto'}}>Summary</Heading>
       <br />
       <hr />
 
@@ -94,7 +94,7 @@ function Cart() {
                   +
                 </button>
               </Box>
-              <Box>${elem.price * elem.quantity}</Box>
+              <Box>₹{elem.price * elem.quantity}</Box>
             </Box>
           ))}
           <hr />
@@ -108,11 +108,11 @@ function Cart() {
             >
               Remove
             </Button>
-            <Box>$299</Box>
+            <Box>₹299</Box>
           </Box>
         </Box>
         <Box w="38%" id={styles.paySum}>
-          <Heading fontSize={26}>Payment Summary</Heading>
+          <Heading fontSize={26}  style={{fontFamily:'Roboto'}}>Payment Summary</Heading>
           <br />
           <Box>
             <p>Item total</p> <p>{total}</p>
@@ -131,7 +131,7 @@ function Cart() {
           </Box>
           <hr />
           <Box>
-            <b>Total</b> <b>{total - 218 - 150 + 69 + 299}</b>
+            <b>Total</b> <b>₹ {total - 218 - 150 + 69 + 299}</b>
           </Box>
          <Link to="/payments"> <Button ml="65%" bg="rgb(110, 66, 229)" color={"white"}>{` Go to Payments`}</Button></Link>
         </Box>
