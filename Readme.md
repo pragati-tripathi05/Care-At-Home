@@ -8,7 +8,7 @@
 ### Original site » https://www.urbancompany.com
 <br />
 
-### Urban Company is an online platform helping customers to book reliable & high quality services, delivered by trained professionals conveniently at home.
+### CareAtHome is an online platform helping customers to book reliable & high quality services, delivered by trained professionals conveniently at home.
 
 <br/>
 
