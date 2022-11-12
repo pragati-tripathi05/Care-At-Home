@@ -36,13 +36,13 @@
 ![Homepage](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/2.png)
 
 - _Signup_
-![Signup]()
+![Signup](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/3.png)
 
 - _Login_
 ![Login](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/4.png)
 
 - _Products_
-![Product Page](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/3.png)
+![Product Page](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/5.png)
 ![Product Page](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/6.png)
 - _Cart_
 ![Cart](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/7.png)
