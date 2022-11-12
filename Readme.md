@@ -35,5 +35,8 @@ psychotic-yam-1841
 ![Homepage](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/1.png)
 ![Homepage](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/2.png)
 
+- _Products_
+![Product Page](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/3.png)
+
 - _Payments Page_
 ![Homepage](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/5.png)
