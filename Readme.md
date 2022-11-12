@@ -2,7 +2,7 @@ psychotic-yam-1841
 
 ## <h2 align="center">Urban Company Clone</h2>
 
-## <h1><center> **CareAtHome** </center></h1>
+## <h1 align="center">  **CareAtHome**</h1>
 
 <br />
 
