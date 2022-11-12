@@ -2,7 +2,7 @@ import { Button, Heading, Input } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from  "axios"
 
-function Signup() {
+function Signup({onClose}) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,21 +24,23 @@ function Signup() {
       .then((res) => {
         console.log(res.data);
         alert(res.data);
+        onClose()
       })
       .catch((err) => {
         console.log(err);
       });
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <Heading>Signup</Heading>
+    <form onSubmit={handleSubmit} style={{ width: "90%", textAlign: "center" }}>
+      {/* <Heading>Signup</Heading> */}
       <br />
       <Input
         placeholder="name"
         type="text"
-        w="sm"
+        w="100%"
         mb={5}
         name="name"
+        required="required"
         value={formData.name}
         onChange={handleChange}
       />
@@ -46,9 +48,10 @@ function Signup() {
       <Input
         placeholder="email"
         type="email"
-        w={"sm"}
+        w="100%"
         mb={5}
         name="email"
+        required="required"
         value={formData.email}
         onChange={handleChange}
       />
@@ -56,14 +59,15 @@ function Signup() {
       <Input
         placeholder="password"
         type="password"
-        w="sm"
+        w="100%"
         mb={5}
         name="password"
+        required="required"
         value={formData.password}
         onChange={handleChange}
       />
       <br />
-      <Input type="submit" value="Signup" w="100px" />
+      <Input type="submit" value="Signup" w="100px" color={"white"} bg="black"/>
     </form>
   );
 }

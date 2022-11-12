@@ -17,7 +17,7 @@ const ProductPage = () => {
   useEffect(() => {
     axios("http://localhost:4000/salon")
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setData(res.data);
       })
       .catch((err) => console.log(err));
