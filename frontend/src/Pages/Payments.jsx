@@ -115,7 +115,7 @@ const Payments = () => {
   
         <br/>
         <Link to="/">
-          <Button className="home">Back to Home</Button>
+          <Button colorScheme={"#6e42e5"} className="home">Back to Home</Button>
         </Link>
       </div>
     </div>
