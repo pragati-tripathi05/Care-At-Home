@@ -37,14 +37,11 @@ function Login({onClose}) {
         navigate("/");
       })
       .catch((err) => {
-        console.log(err);
-        // toast({
-        //   title: 'S',
-        //   status: 'success',
-        //   duration: 2000,
-        //   isClosable: true,
-        // })
+        console.log(err.response.data);
+        alert(err.response.data)
+
         dispatch(loginFailureAction());
+        onClose()
       });
   };
   return (
