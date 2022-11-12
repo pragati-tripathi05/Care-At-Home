@@ -1,4 +1,4 @@
-import { Button, Heading, Input } from "@chakra-ui/react";
+import { Button, Heading, Input, useToast } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { store } from "../../Redux/store";
 
 function Login() {
+  const toast = useToast();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -37,11 +38,23 @@ function Login() {
       .then((res) => {
         console.log(res.data);
         alert(res.data.msg);
+        // toast({
+        //   title: 'Login Successfull!',
+        //   status: 'success',
+        //   duration: 2000,
+        //   isClosable: true,
+        // })
         dispatch(loginSuccessAction(res.data.token));
         navigate("/");
       })
       .catch((err) => {
         console.log(err);
+        // toast({
+        //   title: 'S',
+        //   status: 'success',
+        //   duration: 2000,
+        //   isClosable: true,
+        // })
         dispatch(loginFailureAction());
       });
   };

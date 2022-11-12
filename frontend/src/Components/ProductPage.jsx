@@ -16,6 +16,7 @@ import { accessData } from "../utils/localStorage";
 
 const ProductPage = ({url,heading,rating}) => {
   const [data, setData] = useState([]);
+   const token = JSON.parse(localStorage.getItem("token"));
   useEffect(() => {
     axios(url)
       .then((res) => {
@@ -284,9 +285,9 @@ const ProductPage = ({url,heading,rating}) => {
               </Flex>
             </Stack>
           </Flex>
-          <Flex w="100%" justify="end" pr="2rem">
+          {token?(<Flex w="100%" justify="end" pr="2rem">
             <Link to="/cart"><Button colorScheme='purple' size="lg">View Cart</Button></Link>
-          </Flex>
+          </Flex>):""}
         </VStack>
       </Flex>
       {/* Products End */}

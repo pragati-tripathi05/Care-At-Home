@@ -12,6 +12,7 @@ import {
   Stack,
   Text,
   useDisclosure,
+  useToast,
   VStack,
 } from "@chakra-ui/react";
 import axios from "axios";
@@ -30,6 +31,7 @@ image,
 benefits,benefitssec}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const token = JSON.parse(localStorage.getItem("token"))
+  const toast = useToast();
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -43,9 +45,34 @@ benefits,benefitssec}) => {
     axios.post("http://localhost:4000/addtocart",payload,config)
     .then(res => {
       console.log(res.data)
+      toast({
+          title: 'Item added!',
+          status: 'success',
+          duration: 2000,
+          isClosable: true,
+        })
     })
     .catch(err =>{
-      console.log(err)
+      if(!token){
+        toast({
+          title: 'Please Login First',
+          description:"See console",
+          status: 'error',
+          duration: 2000,
+          isClosable: true,
+        })
+      }
+      else{
+        console.log({"Error":err});
+         toast({
+          title: 'Something went wrong',
+          description:"See console",
+          status: 'error',
+          duration: 2000,
+          isClosable: true,
+        })
+      }
+       
     })
   }
   return (
