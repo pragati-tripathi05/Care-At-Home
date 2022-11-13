@@ -14,7 +14,7 @@ const getBookings = (payload) =>  async(dispatch) => {
 
   try {
         const res = await axios
-            .get("http://localhost:4000/bookingHistory",config);
+            .get("https://care-at-home.onrender.com/",config);
         dispatch({ type: types.GET_BOOKING_SUCCESS, payload:res.data });
         console.log("Data fetched successfully")
         console.log(res.data)
