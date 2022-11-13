@@ -3,8 +3,11 @@ import React from 'react';
 import "./Payments.css";
 import {  ArrowBackIcon,ChevronRightIcon } from '@chakra-ui/icons'
 import { Link } from 'react-router-dom';
+import { accessData } from '../utils/localStorage';
 
-const Payments = ({total}) => {
+const Payments = () => {
+  const total = accessData("total");
+  
   return (
     <div style={{backgroundColor:"#e5e5e5"}}>
       <div className='contain'>
