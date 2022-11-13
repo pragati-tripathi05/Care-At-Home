@@ -15,7 +15,7 @@ import {
 const BookingList = () => {
   const data = useSelector((store) => store.AppReducer.data);
   const dispatch = useDispatch();
-  // console.log("Before useEffect",data)
+
   useEffect(() => {
     dispatch(getBookings());
   }, []);
@@ -78,7 +78,6 @@ const BookingList = () => {
               </div>
             ))}
           </div>
-        
           <Text
             fontFamily={
               "axiforma-regular,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;"
@@ -86,8 +85,13 @@ const BookingList = () => {
             fontSize={"18px"}
           >
             {!data?
-            "You don't have any projects right now":null}
+           " You don't have any projects right now" :null }
+          
+            
           </Text>
+
+         
+        
           <br />
           <Button
             id="book"
