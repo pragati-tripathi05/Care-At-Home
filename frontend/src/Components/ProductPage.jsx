@@ -13,10 +13,11 @@ import ProductItem from "./ProductItem";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { accessData } from "../utils/localStorage";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 
-const ProductPage = ({url,heading,rating}) => {
+const ProductPage = ({ url, heading, rating }) => {
   const [data, setData] = useState([]);
-   const token = JSON.parse(localStorage.getItem("token"));
+  const token = JSON.parse(localStorage.getItem("token"));
   useEffect(() => {
     axios(url)
       .then((res) => {
@@ -29,6 +30,7 @@ const ProductPage = ({url,heading,rating}) => {
   return (
     <Box>
       {/* Product's Page Top Section Start */}
+
       <Flex
         // className={styles.productsPageTopDiv}
         height="70vh"
@@ -38,6 +40,9 @@ const ProductPage = ({url,heading,rating}) => {
         justify="space-between"
         p="3rem 0"
       >
+        <Link to="/">
+          <ArrowBackIcon style={{ backgroundColor: "white" }} boxSize="35px" />
+        </Link>
         <Flex direction="column" align="center" justify="center">
           <Stack spacing="0.5rem">
             <Flex>
@@ -64,7 +69,7 @@ const ProductPage = ({url,heading,rating}) => {
               </Button>
             </Flex>
             <Flex>
-              <Heading as="h1">{heading}</Heading>
+              <Heading as="h1" style={{fontFamily:"Roboto"}}>{heading}</Heading>
             </Flex>
             <Flex fontSize="12px">
               <svg
@@ -141,7 +146,7 @@ const ProductPage = ({url,heading,rating}) => {
           {data.map((elem) => (
             <ProductItem
               key={elem._id}
-              prodId = {elem._id}
+              prodId={elem._id}
               packageName={elem.package}
               description={elem.description}
               rating={elem.rating}
@@ -285,9 +290,17 @@ const ProductPage = ({url,heading,rating}) => {
               </Flex>
             </Stack>
           </Flex>
-          {token?(<Flex w="100%" justify="end" pr="2rem">
-            <Link to="/cart"><Button colorScheme='purple' size="lg">View Cart</Button></Link>
-          </Flex>):""}
+          {token ? (
+            <Flex w="100%" justify="end" pr="2rem">
+              <Link to="/cart">
+                <Button colorScheme="purple" size="lg">
+                  View Cart
+                </Button>
+              </Link>
+            </Flex>
+          ) : (
+            ""
+          )}
         </VStack>
       </Flex>
       {/* Products End */}

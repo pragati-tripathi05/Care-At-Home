@@ -14,6 +14,7 @@ function Login({onClose}) {
     email: "",
     password: "",
   });
+  const toast = useToast()
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -32,16 +33,27 @@ function Login({onClose}) {
       .then((res) => {
         console.log(res.data);
         // alert(res.data.msg);
+        toast({
+          title: "Login Successful",
+          status: "success",
+          duration: 2000,
+          isClosable: true,
+          position: "top-left"
+        });
         dispatch(loginSuccessAction(res.data));
         onClose()
         navigate("/");
       })
       .catch((err) => {
         console.log(err.response.data);
-        alert(err.response.data)
-
+        toast({
+          title: `${err.response.data}`,
+          status: "error",
+          duration: 2000,
+          isClosable: true,
+          position: "top-left"
+        });
         dispatch(loginFailureAction());
-        onClose()
       });
   };
   return (

@@ -1,10 +1,11 @@
-import { Box, Button, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Heading, Text, useToast } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import styles from "./Cart.module.css";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { saveData } from "../utils/localStorage";
+import { AddIcon, ArrowBackIcon, MinusIcon } from "@chakra-ui/icons";
 
 function Cart() {
   const [cartData, setCartData] = useState([]);
@@ -13,6 +14,7 @@ function Cart() {
     return state.reducer.token;
   });
   // console.log(token)
+  const toast = useToast()
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -35,6 +37,13 @@ function Cart() {
       .patch(`http://localhost:4000/cart/inc/${id}`, "noPayload", config)
       .then((res) => {
         console.log(res.data);
+        toast({
+          title: res.data,
+          status: "success",
+          duration: 2000,
+          isClosable: true,
+          position: "top-right"
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -47,6 +56,13 @@ function Cart() {
       .patch(`http://localhost:4000/cart/dec/${id}`, "noPayload", config)
       .then((res) => {
         console.log(res.data);
+        toast({
+          title: res.data,
+          status: "error",
+          duration: 2000,
+          isClosable: true,
+          position: "top-right"
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -61,6 +77,7 @@ function Cart() {
         sum += data[i].price * data[i].quantity;
       }
       setTotal(sum);
+      saveData("total", sum);
     }
     // return;
   };
@@ -69,35 +86,47 @@ function Cart() {
   }, []);
 
   return (
-    <Box w="80%" m="auto" mt="30px">
-      <Heading textAlign={"left"}>Summary</Heading>
+    <Box id={styles.cartwindow}>
+      <Heading textAlign={"left"} style={{ fontFamily: "Roboto" }}>
+        {" "}
+        <Link to="/salon" >
+          <ArrowBackIcon style={{ backgroundColor: "white" }} mr="20px"/>
+        </Link>
+        Summary
+      </Heading>
       <br />
       <hr />
 
       <Box id={styles.cartbox}>
-        <Box w="58%">
-          {/* <Box padding={"15px 30px"}>
-            You are saving a total of 935 on this total
-          </Box> */}
-          <br />
+        <Box>
           {/* <hr /> */}
           <br />
           {cartData?.map((elem) => (
-            <Box className={styles.cartprod}>
-              <Box>{elem.title}</Box>
-              <Box id={styles.qtybox}>
-                <button bgColor="#F1D2D2" onClick={() => decQuantity(elem._id)}>
-                  -
-                </button>
-                <Box>{elem.quantity}</Box>
-                <button bgColor="#F1D2D2" onClick={() => incQuantity(elem._id)}>
-                  +
-                </button>
+            <>
+              <br />
+              <Box className={styles.cartprod}>
+                <Box>{elem.title}</Box>
+                <Box id={styles.qtybox}>
+                  <button
+                    bgColor="#F1D2D2"
+                    onClick={() => decQuantity(elem._id)}
+                  >
+                    <MinusIcon />
+                  </button>
+                  <Box>{elem.quantity}</Box>
+                  <button
+                    bgColor="#F1D2D2"
+                    onClick={() => incQuantity(elem._id)}
+                  >
+                    <AddIcon/>
+                  </button>
+                </Box>
+                <Box>₹{elem.price * elem.quantity}</Box>
               </Box>
-              <Box>${elem.price * elem.quantity}</Box>
-            </Box>
+              <hr />
+            </>
           ))}
-          <hr />
+
           <br />
           <Box className={styles.cartprod}>
             <Box>Plus membership</Box>
@@ -108,11 +137,13 @@ function Cart() {
             >
               Remove
             </Button>
-            <Box>$299</Box>
+            <Box>₹299</Box>
           </Box>
         </Box>
-        <Box w="38%" id={styles.paySum}>
-          <Heading fontSize={26}>Payment Summary</Heading>
+        <Box id={styles.paySum}>
+          <Heading fontSize={26} style={{ fontFamily: "Roboto" }}>
+            Payment Summary
+          </Heading>
           <br />
           <Box>
             <p>Item total</p> <p>{total}</p>
@@ -131,11 +162,18 @@ function Cart() {
           </Box>
           <hr />
           <Box>
-            <b>Total</b> <b>{total - 218 - 150 + 69 + 299}</b>
+            <b>Total</b> <b>₹ {total - 218 - 150 + 69 + 299}</b>
           </Box>
-         <Link to="/payments"> <Button ml="65%" bg="rgb(110, 66, 229)" color={"white"}>{` Go to Payments`}</Button></Link>
+          <Box display="flex" flexDir="row-reverse">
+            <Link to="/payments">
+              {" "}
+              <Button
+                bg="rgb(110, 66, 229)"
+                color={"white"}
+              >{` Proceed to Payments`}</Button>
+            </Link>
+          </Box>
         </Box>
-        
       </Box>
     </Box>
   );

@@ -57,6 +57,14 @@ const ProductItem = ({
       .post("http://localhost:4000/addtocart", payload, config)
       .then((res) => {
         console.log(res.data);
+        toast({
+          title: res.data,
+          status: "success",
+          duration: 2000,
+          isClosable: true,
+          position: "top-right"
+        });
+        onClose()
       })
       .catch((err) => {
         console.log(err);

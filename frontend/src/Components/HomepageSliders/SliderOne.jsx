@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-// import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
-// import { IconButton } from "@chakra-ui/react";
+import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 
 export default class SliderOne extends Component {
   render() {
     var settings = {
-    //   dots: true,
       infinite: false,
       speed: 500,
       slidesToShow: 4,
       slidesToScroll: 4,
       initialSlide: 0,
+      nextArrow: <BiRightArrowAlt color="black" borderRadius="full" />,
+      prevArrow: <BiLeftArrowAlt color="black"/>,
       responsive: [
         {
           breakpoint: 1024,
@@ -41,35 +41,6 @@ export default class SliderOne extends Component {
     };
     return (
       <div>
-        {/* Left Icon */}
-      {/* <IconButton
-        marginTop={"7%"} marginLeft={"-48%"}
-        aria-label="left-arrow"
-        colorScheme="white" shadow={"2px 2px 4px #c0c0c0"} color={"black"} backgroundColor={"white"}
-        borderRadius="full"
-        position="absolute"
-        // left={side}
-        // top={top}
-        transform={"translate(0%, -50%)"}
-        zIndex={2}
-        //onClick={() => slider?.slickPrev()}
-      >
-        <BiLeftArrowAlt />
-      </IconButton> */}
-      {/* <IconButton
-        marginTop={"7%"} marginLeft={"45%"}
-        aria-label="right-arrow"
-        colorScheme="white" shadow={"2px 2px 4px #c0c0c0"} color={"black"} backgroundColor={"white"}
-        borderRadius="full"
-        position="absolute"
-        // right={side}
-        // top={top}
-        transform={"translate(0%, -50%)"}
-        zIndex={2}
-        //onClick={() => slider?.slickNext()}
-      >
-        <BiRightArrowAlt />
-      </IconButton> */}
         <Slider {...settings}>
           <div>
             <img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/home-screen/1667386493900-1d5e09.jpeg" alt="1"  style={{paddingRight:"4%", borderRadius:"10px"}}/>
@@ -84,22 +55,14 @@ export default class SliderOne extends Component {
           <img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/luminosity/1667594664089-1b275d.jpeg" alt="1" style={{paddingRight:"4%", borderRadius:"15px"}}/>
           </div>
           <div>
+            <img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/luminosity/1667544806430-20fdbb.jpeg" style={{paddingRight:"4%"}}/>
+          </div>
+          <div>
           <img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/home-screen/1667233650651-818df5.jpeg" alt="1" style={{paddingRight:"4%"}}/>
           </div>
-          {/* <div>
-            <h3>5</h3>
-          </div>
           <div>
-            <h3>6</h3>
-          </div>
-          <div>
-            <h3>7</h3>
-          </div>
-          <div>
-            <h3>8</h3>
-          </div> */}
-          {/* Right Icon */}
-      
+            <img src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_568/t_high_res_template/images/growth/luminosity/1667304914631-06d0af.jpeg" style={{paddingRight:"4%"}} />
+          </div>    
         </Slider>
       </div>
     );
