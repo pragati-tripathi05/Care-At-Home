@@ -20,7 +20,7 @@ const Payments = () => {
             </Box>
             <Box  align='stretch'>
               <p>Select payment method</p>
-              <Text className='amount'>Amount to pay : ₹ 1,398 {total}</Text>
+              <Text className='amount'>Amount to pay : ₹ 1,199 {total}</Text>
             </Box>
           </Stack>
         </Box>
