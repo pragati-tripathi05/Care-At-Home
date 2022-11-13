@@ -37,13 +37,14 @@ import { saveData } from "../../utils/localStorage";
 import { accessData } from "../../utils/localStorage";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutAction } from "../../Redux/action";
+import Logo from "../../Assets/care@home_logo.png";
+
 const HomeSection = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navbarRef = React.useRef();
   const [isVisible, setisVisible] = useState();
-  
-
   const isAuth = accessData("isAuth");
+  
   const data = useSelector((state) => {
     return state.reducer;
   });
@@ -86,7 +87,7 @@ const HomeSection = () => {
 
     navigator.geolocation.getCurrentPosition(success, error, options);
   }
-  function getDataLocation(lat, lon) {
+  const getDataLocation = (lat, lon)=>{
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=d11e2713cdace67cd72e441e55b790d4`;
     fetch(url)
       .then(function (res) {
@@ -108,7 +109,7 @@ const HomeSection = () => {
         <Flex className={styles.topNavbar}>
           <Image
             className={styles.logo}
-            src="https://res.cloudinary.com/urbanclap/image/upload/images/growth/home-screen/1631097450980-d2de38.png"
+            src={Logo}
             alt="Logo"
           />
           <Flex className={styles.linksDiv}>
@@ -304,6 +305,7 @@ const HomeSection = () => {
             </Box>
             <Text fontSize="13px">Hair, Skin & nails</Text>
           </Box></Link>
+          <Link to="/mensalon">
           <Box className={styles.serviceCard}>
             <Box>
               <Image
@@ -313,7 +315,8 @@ const HomeSection = () => {
               />
             </Box>
             <Text fontSize="13px">Salon for men</Text>
-          </Box>
+          </Box></Link>
+          <Link to="/mentherapies">
           <Box className={styles.serviceCard}>
             <Box>
               <Image
@@ -323,7 +326,7 @@ const HomeSection = () => {
               />
             </Box>
             <Text fontSize="13px">Men's therapies</Text>
-          </Box>
+          </Box></Link>
         </Flex>
         {/* Service Section-1 Cards End */}
       </Box>
@@ -413,6 +416,7 @@ const HomeSection = () => {
             </InputGroup>
           </Box>
           <Flex gap="1rem">
+            <Link to="/womentherapies">
             <Box className={styles.navbarServiceCards}>
               <Box>
                 <Image
@@ -422,7 +426,8 @@ const HomeSection = () => {
                 />
               </Box>
               <Text fontSize="10px">Women's therapies</Text>
-            </Box>
+            </Box></Link>
+            <Link to="/mensalon">
             <Box className={styles.navbarServiceCards}>
               <Box>
                 <Image
@@ -432,8 +437,9 @@ const HomeSection = () => {
                 />
               </Box>
               <Text fontSize="10px">Salon for men</Text>
-            </Box>
-            <Box className={styles.navbarServiceCards}>
+            </Box></Link>
+            <Link to="/mentherapies">
+              <Box className={styles.navbarServiceCards}>
               <Box>
                 <Image
                   width="28px"
@@ -443,6 +449,7 @@ const HomeSection = () => {
               </Box>
               <Text fontSize="10px">Men's therapies</Text>
             </Box>
+            </Link>
           </Flex>
         </Flex>
       )}
