@@ -1,19 +1,24 @@
 import React, {useEffect} from 'react';
 import {  useSelector, useDispatch } from 'react-redux';
+import Booking from '../Pages/Booking';
 import { getBookings } from '../Redux/AppReducer/action';
 const BookingList = () => {
 const data = useSelector((store) => store.AppReducer.data);
 const dispatch = useDispatch();
-console.log("Before useEffect",data)
+// console.log("Before useEffect",data)
 useEffect(() => {
     dispatch(getBookings());
 },[]);
 
 console.log("After useEffect",data)
   return (
-    <div>
-        Your Bookings
-    </div>
+    <>
+     {data?.map((ele) => 
+        <div key={ele._id}>
+          <Booking bookingData={ele}/>
+        </div>
+     )}
+    </>
   )
 }
 
