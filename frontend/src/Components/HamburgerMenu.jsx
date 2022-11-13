@@ -25,7 +25,8 @@ import { Link, NavLink } from 'react-router-dom'
 import { logoutAction } from '../Redux/action'
 import Login from './Auth/Login'
 import { SignupDrawer } from './Auth/SignupDrawer'
-import Hamburg from './hamburgcom'
+import Hamburg from './hamburgcom';
+import Logo from "../Assets/care@home_logo.png";
   export function HamburgerMenu() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [placement, setPlacement] = React.useState('right')
@@ -41,7 +42,7 @@ import Hamburg from './hamburgcom'
       <>
            <Box display={"flex"} justifyContent="space-between" padding={"10px"} backgroundColor="#000">
         <NavLink to="/">
-          <Image src="https://cdn1.tripoto.com/assets/2.9/img/logo/tripoto.svg" />
+          <Image width="130px" src={Logo} />
         </NavLink>
         <Button
           onClick={onOpen}

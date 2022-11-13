@@ -124,14 +124,17 @@ const HomeSection = () => {
     <Box ref={navbarRef}>
       <Box className={styles.homeSection}>
         {/* Top Navbar Starts */}
-        {windowSize.innerWidth > 640 ? (
-          <Flex className={styles.topNavbar}>
-            <Image className={styles.logo} src={Logo} alt="Logo" />
-            <Flex className={styles.linksDiv}>
-              <Link>Blog</Link>
-              <Link to="/booking">Bookings</Link>
-              <Link>Register As A Professional</Link>
-              {/* <Text style={{ cursor: "pointer" }} onClick={onOpen}> */}
+       {(windowSize.innerWidth > 1007) ?  (<Flex className={styles.topNavbar}>
+          <Image
+            className={styles.logo}
+            src={Logo}
+            alt="Logo"
+          />
+          <Flex className={styles.linksDiv}>
+            <Link>Blog</Link>
+            <Link to="/booking">Bookings</Link>
+            <Link>Register As A Professional</Link>
+            {/* <Text style={{ cursor: "pointer" }} onClick={onOpen}> */}
               {!data.isAuth ? (
                 <Text style={{ cursor: "pointer" }} onClick={onOpen}>
                   {" "}
@@ -206,16 +209,11 @@ const HomeSection = () => {
               marginBottom: "2.5rem",
               fontFamily: "Roboto",
             }}
-            fontSize={{ sm: "44px", md: "44px", lg: "48px" }}
+            fontSize={{base:"40px",md:"44px",lg:"48px"}}
           >
             Home services, on demand.
           </Heading>
-          <Flex
-            direction={{ sm: "row", md: "row", lg: "row" }}
-            gap="25px"
-            w={{ sm: "80%", md: "70%", lg: "50%" }}
-            m="auto"
-          >
+          <Flex  direction={{sm:"row",md:"row",lg:"row"}} gap="25px" w={{base:"80%",md:"70%",lg:"50%"}} m="auto">
             <Box>
               <Popover>
                 <PopoverTrigger>
@@ -303,7 +301,7 @@ const HomeSection = () => {
               </InputGroup>
             </Box>
           </Flex>
-          <Text ml="-1.5rem" mt="0.5rem" color="white" fontSize="16px">
+          <Text w={{base:"60%",md:"100%",lg:"100%"}} ml="-1.5rem" mt="0.5rem" color="white" fontSize={{base:"12px",md:"16px",lg:"16px"}}>
             <Link>
               <u>Women's Therapies</u>
             </Link>
@@ -442,7 +440,7 @@ const HomeSection = () => {
       </Box>
       {/* Home Services End */}
       {/* Navbar which opens on scroll start */}
-      {isVisible == true || windowSize.innerWidth < 640 ? (
+      { (windowSize.innerWidth<1007) || (isVisible)? (
         ""
       ) : (
         <Flex className={styles.scrollNavbar}>
