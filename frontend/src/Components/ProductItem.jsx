@@ -54,7 +54,7 @@ const ProductItem = ({
       price: price,
     };
     axios
-      .post("http://localhost:4000/addtocart", payload, config)
+      .post("https://care-at-home.onrender.com/addtocart", payload, config)
       .then((res) => {
         console.log(res.data);
         toast({

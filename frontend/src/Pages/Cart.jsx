@@ -22,7 +22,7 @@ function Cart() {
   };
   const getCartProd = () => {
     axios
-      .get("http://localhost:4000/cart", config)
+      .get("https://care-at-home.onrender.com/cart", config)
       .then((res) => {
         // console.log(res.data);
         setCartData(res.data);
@@ -34,7 +34,7 @@ function Cart() {
   };
   const incQuantity = (id) => {
     axios
-      .patch(`http://localhost:4000/cart/inc/${id}`, "noPayload", config)
+      .patch(`https://care-at-home.onrender.com/cart/inc/${id}`, "noPayload", config)
       .then((res) => {
         console.log(res.data);
         toast({
@@ -53,7 +53,7 @@ function Cart() {
   };
   const decQuantity = (id) => {
     axios
-      .patch(`http://localhost:4000/cart/dec/${id}`, "noPayload", config)
+      .patch(`https://care-at-home.onrender.com/cart/dec/${id}`, "noPayload", config)
       .then((res) => {
         console.log(res.data);
         toast({
@@ -169,7 +169,7 @@ function Cart() {
               {" "}
               <Button
                 bg="rgb(110, 66, 229)"
-                color={"white"}
+                color={"white"} _hover={{backgroundColor:"rgb(120, 79, 232)"}}
               >{` Proceed to Payments`}</Button>
             </Link>
           </Box>

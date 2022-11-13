@@ -8,7 +8,6 @@ const NewCateg = () => {
        <div className="newcateg_offer">
         <div className="offer_text">
           <h1>New Category Launches</h1>
-          <p>Hygienic & single-use products | low-contact services</p>
         </div>
         <div className="offer_content">
           <SimpleGrid columns={[1, 2, 3, 4]} spacing="30px">
