@@ -37,6 +37,7 @@ import { saveData } from "../../utils/localStorage";
 import { accessData } from "../../utils/localStorage";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutAction } from "../../Redux/action";
+import { HamburgerMenu } from "../HamburgerMenu";
 import Logo from "../../Assets/care@home_logo.png";
 
 const HomeSection = () => {
@@ -53,6 +54,24 @@ const HomeSection = () => {
   const handleLogout = ()=>{
     dispatch(logoutAction())
   }
+
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+  function getWindowSize() {
+    const { innerWidth, innerHeight } = window;
+    return { innerWidth, innerHeight };
+  }
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+  console.log(windowSize)
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
@@ -106,7 +125,7 @@ const HomeSection = () => {
     <Box ref={navbarRef}>
       <Box className={styles.homeSection}>
         {/* Top Navbar Starts */}
-        <Flex className={styles.topNavbar}>
+       {windowSize.innerWidth > 640 ?  (<Flex className={styles.topNavbar}>
           <Image
             className={styles.logo}
             src={Logo}
@@ -169,7 +188,7 @@ const HomeSection = () => {
             </Drawer>
             {/* Drawer End */}
           </Flex>
-        </Flex>
+        </Flex>): <HamburgerMenu/>}
         {/* Top Navbar End */}
         {/* Search Section Starts */}
         <Box mt="10rem">
@@ -395,7 +414,7 @@ const HomeSection = () => {
       </Box>
       {/* Home Services End */}
       {/* Navbar which opens on scroll start */}
-      {isVisible ? (
+      {isVisible == true || windowSize.innerWidth <640 ? (
         ""
       ) : (
         <Flex className={styles.scrollNavbar}>

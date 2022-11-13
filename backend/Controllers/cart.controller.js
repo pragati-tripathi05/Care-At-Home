@@ -29,6 +29,10 @@ const incQuantity = async (req, res) => {
 const decQuantity = async (req, res) => {
   const { prodId } = req.params;
   const prod = await cartProd.findById(prodId);
+  if(prod === null || prod == undefined){
+    res.status(500).send("Somehting went wrong, try again later")
+  }
+  else{
   if (prod.quantity == 1) {
     await cartProd.findByIdAndDelete(prodId);
     res.send("Deleted from the cart");
@@ -36,6 +40,10 @@ const decQuantity = async (req, res) => {
     await cartProd.updateOne({ _id: prodId }, { $inc: { quantity: -1 } });
     res.send("Quantity decreased");
   }
+  else{
+    res.status(500).send("Somehting went wrong, try again later")
+  }
+}
 };
 
 module.exports = { addToCart, getCartProds, incQuantity, decQuantity };
