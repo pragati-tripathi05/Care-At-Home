@@ -177,15 +177,16 @@ const HomeSection = () => {
             as="h1"
             style={{
               color: "white",
-              fontSize: "48px",
               marginBottom: "2.5rem",
               fontFamily: "Roboto",
             }}
+            fontSize={{sm:"44px",md:"44px",lg:"48px"}}
           >
             Home services, on demand.
           </Heading>
-          <Flex gap="25px" w="50%" m="auto">
-            <Popover>
+          <Flex  direction={{sm:"row",md:"row",lg:"row"}} gap="25px" w={{sm:"80%",md:"70%",lg:"50%"}} m="auto">
+            <Box>
+              <Popover>
               <PopoverTrigger >
                 <Flex onClick={()=>gettingLocation()} className={styles.locationfield}>
                   <Image
@@ -223,7 +224,7 @@ const HomeSection = () => {
                     }}
                   >
                     <InputLeftElement
-                      height="100%"
+                      // height="100%"
                       pointerEvents="none"
                       children={
                         <AiOutlineSearch
@@ -234,12 +235,13 @@ const HomeSection = () => {
                     <Input
                       type="text"
                       placeholder="Search for services"
-                      size="lg"
+                      size={{sm:"sm",md:"md",lg:"lg"}}
                     />
                   </InputGroup>
                 </PopoverBody>
               </PopoverContent>
             </Popover>
+            </Box>
             <Box flex="1">
               <InputGroup
                 style={{
@@ -284,7 +286,7 @@ const HomeSection = () => {
         </Box>
         {/* Search Section End */}
         {/* Service Section-1 Cards Starts */}
-        <Flex justify="center" className={styles.serviceCardSection1}>
+        <Flex wrap="wrap" justify="center" className={styles.serviceCardSection1}>
           <Link to="/salon"><Box className={styles.serviceCard}>
             <Box>
               <Image
@@ -337,7 +339,7 @@ const HomeSection = () => {
           Home Services
         </Heading>
         {/* Service Section-2 Cards Starts */}
-        <Flex className={styles.serviceCardSection2}>
+        <Flex wrap="wrap" justify="center" className={styles.serviceCardSection2}>
           <Box className={styles.serviceCard}>
             <Box>
               <Image
@@ -397,7 +399,7 @@ const HomeSection = () => {
         ""
       ) : (
         <Flex className={styles.scrollNavbar}>
-          <Box flex="2">
+          <Box flex={{sm:"3",md:"3",lg:"2"}}>
             <InputGroup
               style={{
                 backgroundColor: "white",
@@ -416,7 +418,7 @@ const HomeSection = () => {
               <Input type="text" placeholder="Search for services" size="lg" />
             </InputGroup>
           </Box>
-          <Flex gap="1rem">
+          <Flex gap={{md:"20px",lg:"1rem"}}>
             <Link to="/womentherapies">
             <Box className={styles.navbarServiceCards}>
               <Box>
