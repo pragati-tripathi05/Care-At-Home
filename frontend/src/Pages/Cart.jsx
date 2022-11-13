@@ -53,7 +53,11 @@ function Cart() {
   };
   const decQuantity = (id) => {
     axios
+<<<<<<< HEAD
       .patch(`https://care-at-home.onrender.com/cart/dec/${id}`, "noPayload", config)
+=======
+      .patch(`hhttps://care-at-home.onrender.com/cart/dec/${id}`, "noPayload", config)
+>>>>>>> fbef44e613f5267e927436e468a437cbc4e816bf
       .then((res) => {
         console.log(res.data);
         toast({
