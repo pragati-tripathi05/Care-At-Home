@@ -14,7 +14,7 @@ function Cart() {
     return state.reducer.token;
   });
   // console.log(token)
-  const toast = useToast()
+  const toast = useToast();
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -34,7 +34,11 @@ function Cart() {
   };
   const incQuantity = (id) => {
     axios
-      .patch(`https://care-at-home.onrender.com/cart/inc/${id}`, "noPayload", config)
+      .patch(
+        `https://care-at-home.onrender.com/cart/inc/${id}`,
+        "noPayload",
+        config
+      )
       .then((res) => {
         console.log(res.data);
         toast({
@@ -42,7 +46,7 @@ function Cart() {
           status: "success",
           duration: 2000,
           isClosable: true,
-          position: "top-right"
+          position: "top-right",
         });
       })
       .catch((err) => {
@@ -53,7 +57,11 @@ function Cart() {
   };
   const decQuantity = (id) => {
     axios
-      .patch(`https://care-at-home.onrender.com/cart/dec/${id}`, "noPayload", config)
+      .patch(
+        `https://care-at-home.onrender.com/cart/dec/${id}`,
+        "noPayload",
+        config
+      )
       .then((res) => {
         console.log(res.data);
         toast({
@@ -61,7 +69,7 @@ function Cart() {
           status: "error",
           duration: 2000,
           isClosable: true,
-          position: "top-right"
+          position: "top-right",
         });
       })
       .catch((err) => {
@@ -89,8 +97,8 @@ function Cart() {
     <Box id={styles.cartwindow}>
       <Heading textAlign={"left"} style={{ fontFamily: "Roboto" }}>
         {" "}
-        <Link to="/salon" >
-          <ArrowBackIcon style={{ backgroundColor: "white" }} mr="20px"/>
+        <Link to="/salon">
+          <ArrowBackIcon style={{ backgroundColor: "white" }} mr="20px" />
         </Link>
         Summary
       </Heading>
@@ -118,7 +126,7 @@ function Cart() {
                     bgColor="#F1D2D2"
                     onClick={() => incQuantity(elem._id)}
                   >
-                    <AddIcon/>
+                    <AddIcon />
                   </button>
                 </Box>
                 <Box>₹{elem.price * elem.quantity}</Box>
@@ -169,7 +177,8 @@ function Cart() {
               {" "}
               <Button
                 bg="rgb(110, 66, 229)"
-                color={"white"} _hover={{backgroundColor:"rgb(120, 79, 232)"}}
+                color={"white"}
+                _hover={{ backgroundColor: "rgb(120, 79, 232)" }}
               >{` Proceed to Payments`}</Button>
             </Link>
           </Box>
