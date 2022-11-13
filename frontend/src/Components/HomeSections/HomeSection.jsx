@@ -45,15 +45,15 @@ const HomeSection = () => {
   const navbarRef = React.useRef();
   const [isVisible, setisVisible] = useState();
   const isAuth = accessData("isAuth");
-  
+
   const data = useSelector((state) => {
     return state.reducer;
   });
   // console.log(data);
-  const dispatch = useDispatch()
-  const handleLogout = ()=>{
-    dispatch(logoutAction())
-  }
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logoutAction());
+  };
 
   const [windowSize, setWindowSize] = useState(getWindowSize());
   function getWindowSize() {
@@ -71,7 +71,7 @@ const HomeSection = () => {
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
-  console.log(windowSize)
+  console.log(windowSize);
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
@@ -82,14 +82,14 @@ const HomeSection = () => {
 
   // **************************Getting Location**********************
   const [cityname, setCityname] = useState("Delhi NCR");
-  const gettingLocation = ()=> {
+  const gettingLocation = () => {
     var options = {
       enableHighAccuracy: true,
       timeout: 5000,
       maximumAge: 0,
     };
 
-    const success = (position)=> {
+    const success = (position) => {
       let crd = position.coords;
 
       console.log("Your current position is:");
@@ -97,16 +97,15 @@ const HomeSection = () => {
       console.log(`Longitude: ${crd.longitude}`);
       console.log(`More or less ${crd.accuracy} meters.`);
       getDataLocation(crd.latitude, crd.longitude);
-    }
+    };
 
     const error = (err) => {
-
       console.warn(`ERROR(${err.code}): ${err.message}`);
-    }
+    };
 
     navigator.geolocation.getCurrentPosition(success, error, options);
-  }
-  const getDataLocation = (lat, lon)=>{
+  };
+  const getDataLocation = (lat, lon) => {
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=d11e2713cdace67cd72e441e55b790d4`;
     fetch(url)
       .then(function (res) {
@@ -115,12 +114,12 @@ const HomeSection = () => {
       .then(function (res) {
         console.log(res);
         setCityname(res.name);
-        saveData("location",res.name);
+        saveData("location", res.name);
       })
       .catch(function (err) {
         console.log(err);
       });
-  }
+  };
   return (
     <Box ref={navbarRef}>
       <Box className={styles.homeSection}>
@@ -137,7 +136,10 @@ const HomeSection = () => {
             <Link>Register As A Professional</Link>
             {/* <Text style={{ cursor: "pointer" }} onClick={onOpen}> */}
               {!data.isAuth ? (
-                <Text style={{ cursor: "pointer" }} onClick={onOpen}> Login/SignUp </Text>
+                <Text style={{ cursor: "pointer" }} onClick={onOpen}>
+                  {" "}
+                  Login/SignUp{" "}
+                </Text>
               ) : (
                 <Box
                   display="flex"
@@ -154,41 +156,49 @@ const HomeSection = () => {
                     size="sm"
                   />
                   <b>{data.name}</b>{" "}
-                  <Button bg={"black"} ml="30px" onClick={handleLogout}  className="black-button">
+                  <Button
+                    bg={"black"}
+                    ml="30px"
+                    onClick={handleLogout}
+                    className="black-button"
+                  >
                     Logout
                   </Button>
                 </Box>
               )}
-            {/* </Text> */}
-            {/* Drawer Start */}
-            <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-              <DrawerOverlay />
-              <DrawerContent>
-                <DrawerCloseButton />
-                <DrawerHeader borderBottomWidth="1px">
-                  Log in to your account
-                </DrawerHeader>
-                <DrawerBody>
-                  <Stack spacing="24px">
-                    <Box>
-                      <Login onClose= {onClose} />
-                      <br />
-                      <Box
-                        display="flex"
-                        justifyContent="center"
-                        alignItems="center"
-                        gap="20px"
-                      >
-                        Don't have an account ? <SignupDrawer />
+              {/* </Text> */}
+              {/* Drawer Start */}
+              <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+                <DrawerOverlay />
+                <DrawerContent>
+                  <DrawerCloseButton />
+                  <DrawerHeader borderBottomWidth="1px">
+                    Log in to your account
+                  </DrawerHeader>
+                  <DrawerBody>
+                    <Stack spacing="24px">
+                      <Box>
+                        <Login onClose={onClose} />
+                        <br />
+                        <Box
+                          display="flex"
+                          justifyContent="center"
+                          alignItems="center"
+                          gap="20px"
+                        >
+                          Don't have an account ? <SignupDrawer />
+                        </Box>
                       </Box>
-                    </Box>
-                  </Stack>
-                </DrawerBody>
-              </DrawerContent>
-            </Drawer>
-            {/* Drawer End */}
+                    </Stack>
+                  </DrawerBody>
+                </DrawerContent>
+              </Drawer>
+              {/* Drawer End */}
+            </Flex>
           </Flex>
-        </Flex>): <HamburgerMenu/>}
+        ) : (
+          <HamburgerMenu />
+        )}
         {/* Top Navbar End */}
         {/* Search Section Starts */}
         <Box mt="10rem">
@@ -206,60 +216,63 @@ const HomeSection = () => {
           <Flex  direction={{sm:"row",md:"row",lg:"row"}} gap="25px" w={{base:"80%",md:"70%",lg:"50%"}} m="auto">
             <Box>
               <Popover>
-              <PopoverTrigger >
-                <Flex onClick={()=>gettingLocation()} className={styles.locationfield}>
-                  <Image
-                    width="20px"
-                    src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep/t_medium_res_template/images/supply/partner-app-supply/1661338258375-6c99b1.png"
-                    alt="country_flag"
-                  />
-                  <Text>{cityname}</Text>
-                  <TiArrowSortedDown />
-                </Flex>
-              </PopoverTrigger>
-              <PopoverContent>
-                <PopoverArrow />
-                <PopoverHeader>
-                  <Flex justify="space-between">
-                    <Flex gap="3px">
-                      <CiLocationOn
-                        style={{ position: "relative", top: "4px" }}
-                      />
-                      Current Location
-                    </Flex>
-                    <Flex cursor="pointer" fontWeight="700" color="#6e43e5">
-                      Detect using GPS{" "}
-                      <IoIosArrowForward
-                        style={{ position: "relative", top: "4px" }}
-                      />
-                    </Flex>
-                  </Flex>
-                </PopoverHeader>
-                <PopoverBody>
-                  <InputGroup
-                    style={{
-                      backgroundColor: "white",
-                      borderRadius: "4px",
-                    }}
+                <PopoverTrigger>
+                  <Flex
+                    onClick={() => gettingLocation()}
+                    className={styles.locationfield}
                   >
-                    <InputLeftElement
-                      // height="100%"
-                      pointerEvents="none"
-                      children={
-                        <AiOutlineSearch
-                          style={{ color: "grey", fontSize: "1.5rem" }}
+                    <Image
+                      width="20px"
+                      src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep/t_medium_res_template/images/supply/partner-app-supply/1661338258375-6c99b1.png"
+                      alt="country_flag"
+                    />
+                    <Text>{cityname}</Text>
+                    <TiArrowSortedDown />
+                  </Flex>
+                </PopoverTrigger>
+                <PopoverContent>
+                  <PopoverArrow />
+                  <PopoverHeader>
+                    <Flex justify="space-between">
+                      <Flex gap="3px">
+                        <CiLocationOn
+                          style={{ position: "relative", top: "4px" }}
                         />
-                      }
-                    />
-                    <Input
-                      type="text"
-                      placeholder="Search for services"
-                      size={{sm:"sm",md:"md",lg:"lg"}}
-                    />
-                  </InputGroup>
-                </PopoverBody>
-              </PopoverContent>
-            </Popover>
+                        Current Location
+                      </Flex>
+                      <Flex cursor="pointer" fontWeight="700" color="#6e43e5">
+                        Detect using GPS{" "}
+                        <IoIosArrowForward
+                          style={{ position: "relative", top: "4px" }}
+                        />
+                      </Flex>
+                    </Flex>
+                  </PopoverHeader>
+                  <PopoverBody>
+                    <InputGroup
+                      style={{
+                        backgroundColor: "white",
+                        borderRadius: "4px",
+                      }}
+                    >
+                      <InputLeftElement
+                        // height="100%"
+                        pointerEvents="none"
+                        children={
+                          <AiOutlineSearch
+                            style={{ color: "grey", fontSize: "1.5rem" }}
+                          />
+                        }
+                      />
+                      <Input
+                        type="text"
+                        placeholder="Search for services"
+                        size={{ sm: "sm", md: "md", lg: "lg" }}
+                      />
+                    </InputGroup>
+                  </PopoverBody>
+                </PopoverContent>
+              </Popover>
             </Box>
             <Box flex="1">
               <InputGroup
@@ -305,50 +318,59 @@ const HomeSection = () => {
         </Box>
         {/* Search Section End */}
         {/* Service Section-1 Cards Starts */}
-        <Flex wrap="wrap" justify="center" className={styles.serviceCardSection1}>
-          <Link to="/salon"><Box className={styles.serviceCard}>
-            <Box>
-              <Image
-                width="32px"
-                src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/images/growth/home-screen/1609757635235-1a139e.png"
-                alt="services_image"
-              />
+        <Flex
+          wrap="wrap"
+          justify="center"
+          className={styles.serviceCardSection1}
+        >
+          <Link to="/salon">
+            <Box className={styles.serviceCard}>
+              <Box>
+                <Image
+                  width="32px"
+                  src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/images/growth/home-screen/1609757635235-1a139e.png"
+                  alt="services_image"
+                />
+              </Box>
+              <Text fontSize="13px">Salon for women</Text>
             </Box>
-            <Text fontSize="13px">Salon for women</Text>
-          </Box>
           </Link>
-          <Link to="/womenhair"><Box className={styles.serviceCard}>
-            <Box>
-              <Image
-                width="32px"
-                src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/images/supply/customer-app-supply/1635331606894-7b633f.png"
-                alt="services_image"
-              />
+          <Link to="/womenhair">
+            <Box className={styles.serviceCard}>
+              <Box>
+                <Image
+                  width="32px"
+                  src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/images/supply/customer-app-supply/1635331606894-7b633f.png"
+                  alt="services_image"
+                />
+              </Box>
+              <Text fontSize="13px">Hair, Skin & nails</Text>
             </Box>
-            <Text fontSize="13px">Hair, Skin & nails</Text>
-          </Box></Link>
+          </Link>
           <Link to="/mensalon">
-          <Box className={styles.serviceCard}>
-            <Box>
-              <Image
-                width="32px"
-                src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/images/growth/home-screen/1609757629780-2b2187.png"
-                alt="services_image"
-              />
+            <Box className={styles.serviceCard}>
+              <Box>
+                <Image
+                  width="32px"
+                  src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/images/growth/home-screen/1609757629780-2b2187.png"
+                  alt="services_image"
+                />
+              </Box>
+              <Text fontSize="13px">Salon for men</Text>
             </Box>
-            <Text fontSize="13px">Salon for men</Text>
-          </Box></Link>
+          </Link>
           <Link to="/mentherapies">
-          <Box className={styles.serviceCard}>
-            <Box>
-              <Image
-                width="32px"
-                src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/images/growth/home-screen/1609757731250-ba3308.png"
-                alt="services_image"
-              />
+            <Box className={styles.serviceCard}>
+              <Box>
+                <Image
+                  width="32px"
+                  src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/images/growth/home-screen/1609757731250-ba3308.png"
+                  alt="services_image"
+                />
+              </Box>
+              <Text fontSize="13px">Men's therapies</Text>
             </Box>
-            <Text fontSize="13px">Men's therapies</Text>
-          </Box></Link>
+          </Link>
         </Flex>
         {/* Service Section-1 Cards End */}
       </Box>
@@ -358,7 +380,11 @@ const HomeSection = () => {
           Home Services
         </Heading>
         {/* Service Section-2 Cards Starts */}
-        <Flex wrap="wrap" justify="center" className={styles.serviceCardSection2}>
+        <Flex
+          wrap="wrap"
+          justify="center"
+          className={styles.serviceCardSection2}
+        >
           <Box className={styles.serviceCard}>
             <Box>
               <Image
@@ -414,11 +440,11 @@ const HomeSection = () => {
       </Box>
       {/* Home Services End */}
       {/* Navbar which opens on scroll start */}
-      { (windowSize.innerWidth<640) || (isVisible)? (
+      { (windowSize.innerWidth<1007) || (isVisible)? (
         ""
       ) : (
         <Flex className={styles.scrollNavbar}>
-          <Box flex={{sm:"3",md:"3",lg:"2"}}>
+          <Box flex={{ sm: "3", md: "3", lg: "2" }}>
             <InputGroup
               style={{
                 backgroundColor: "white",
@@ -437,40 +463,42 @@ const HomeSection = () => {
               <Input type="text" placeholder="Search for services" size="lg" />
             </InputGroup>
           </Box>
-          <Flex gap={{md:"20px",lg:"1rem"}}>
+          <Flex gap={{ md: "20px", lg: "1rem" }}>
             <Link to="/womentherapies">
-            <Box className={styles.navbarServiceCards}>
-              <Box>
-                <Image
-                  width="28px"
-                  src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/categories/category_v2/category_1312fb60.png"
-                  alt="services_image"
-                />
+              <Box className={styles.navbarServiceCards}>
+                <Box>
+                  <Image
+                    width="28px"
+                    src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/categories/category_v2/category_1312fb60.png"
+                    alt="services_image"
+                  />
+                </Box>
+                <Text fontSize="10px">Women's therapies</Text>
               </Box>
-              <Text fontSize="10px">Women's therapies</Text>
-            </Box></Link>
+            </Link>
             <Link to="/mensalon">
-            <Box className={styles.navbarServiceCards}>
-              <Box>
-                <Image
-                  width="28px"
-                  src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/images/growth/home-screen/1609757629780-2b2187.png"
-                  alt="services_image"
-                />
+              <Box className={styles.navbarServiceCards}>
+                <Box>
+                  <Image
+                    width="28px"
+                    src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/images/growth/home-screen/1609757629780-2b2187.png"
+                    alt="services_image"
+                  />
+                </Box>
+                <Text fontSize="10px">Salon for men</Text>
               </Box>
-              <Text fontSize="10px">Salon for men</Text>
-            </Box></Link>
+            </Link>
             <Link to="/mentherapies">
               <Box className={styles.navbarServiceCards}>
-              <Box>
-                <Image
-                  width="28px"
-                  src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/images/growth/home-screen/1609757731250-ba3308.png"
-                  alt="services_image"
-                />
+                <Box>
+                  <Image
+                    width="28px"
+                    src="https://res.cloudinary.com/urbanclap/image/upload/q_auto,f_auto,fl_progressive:steep,w_64/t_high_res_template/images/growth/home-screen/1609757731250-ba3308.png"
+                    alt="services_image"
+                  />
+                </Box>
+                <Text fontSize="10px">Men's therapies</Text>
               </Box>
-              <Text fontSize="10px">Men's therapies</Text>
-            </Box>
             </Link>
           </Flex>
         </Flex>

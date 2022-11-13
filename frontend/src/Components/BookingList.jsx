@@ -11,6 +11,7 @@ import {
   Button,
   Text,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const BookingList = () => {
   const data = useSelector((store) => store.AppReducer.data);
@@ -66,8 +67,8 @@ const BookingList = () => {
                 HISTORY
               </Tab>
             </TabList>
-            </Tabs>
-         
+          </Tabs>
+
           <div id="mapping">
             {data?.map((ele) => (
               <div id="card" key={ele._id}>
@@ -84,29 +85,26 @@ const BookingList = () => {
             }
             fontSize={"18px"}
           >
-            {!data?
-           " You don't have any projects right now" :null }
-          
-            
+            {!data ? " You don't have any projects right now" : null}
           </Text>
 
-         
-        
           <br />
-          <Button
-            id="book"
-            fontFamily={
-              "axiforma-regular,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;"
-            }
-            color={"white"}
-            bg={"black"}
-            pr={"30px"}
-            pl={"30px"}
-            pt={"12px"}
-            pb={"12px"}
-          >
-            BOOK A SERVICE
-          </Button>
+          <Link to="/">
+            <Button
+              id="book"
+              fontFamily={
+                "axiforma-regular,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;"
+              }
+              color={"white"}
+              bg={"black"}
+              pr={"30px"}
+              pl={"30px"}
+              pt={"12px"}
+              pb={"12px"}
+            >
+              BOOK A SERVICE
+            </Button>
+          </Link>
         </div>
       </div>
     </>

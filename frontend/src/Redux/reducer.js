@@ -7,11 +7,11 @@ import {
 } from "./actionTypes";
 
 const initState = {
-    // isAuth: accessData("token") ? true : false,
+  // isAuth: accessData("token") ? true : false,
   isAuth: accessData("isAuth") || false,
   isAuthLoading: false,
   token: accessData("token") || null,
-  name: accessData("name") || null
+  name: accessData("name") || null,
 };
 // console.log(initState.isAuth)
 export const reducer = (state = initState, action) => {
@@ -24,14 +24,14 @@ export const reducer = (state = initState, action) => {
     }
     case LOGIN_SUCCESS: {
       saveData("token", action.payload.token);
-      saveData("name" ,action.payload.name)
+      saveData("name", action.payload.name);
       saveData("isAuth", true);
       return {
         ...state,
         isAuthLoading: false,
         isAuth: true,
         token: action.payload.token,
-        name: action.payload.name
+        name: action.payload.name,
       };
     }
     case LOGIN_FAILURE: {
@@ -42,9 +42,9 @@ export const reducer = (state = initState, action) => {
       };
     }
     case LOGOUT: {
-      saveData("token" , null)
-      saveData("isAuth" ,false)
-      saveData("name" , null)
+      saveData("token", null);
+      saveData("isAuth", false);
+      saveData("name", null);
       return {
         ...state,
         isAuth: false,

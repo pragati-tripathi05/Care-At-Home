@@ -62,9 +62,9 @@ const ProductItem = ({
           status: "success",
           duration: 2000,
           isClosable: true,
-          position: "top-right"
+          position: "top-right",
         });
-        onClose()
+        onClose();
       })
       .catch((err) => {
         console.log(err);
@@ -80,7 +80,6 @@ const ProductItem = ({
       });
   };
 
- 
   return (
     <Box className={styles.productItemDiv} onClick={onOpen}>
       {/* Modal Start */}
