@@ -37,7 +37,7 @@ const MainRoutes = () => {
           path="/salon"
           element={
             <ProductPage
-              url="http://localhost:4000/salon"
+              url="https://care-at-home.onrender.com/salon"
               heading="Salon Prime"
               rating="4.76 (978K)"
             />
@@ -47,7 +47,7 @@ const MainRoutes = () => {
           path="/mensalon"
           element={
             <ProductPage
-              url="http://localhost:4000/mensalon"
+              url="https://care-at-home.onrender.com/mensalon"
               heading="Salon for Men"
               rating="4.76 (978K)"
             />
@@ -57,7 +57,7 @@ const MainRoutes = () => {
           path="/mentherapies"
           element={
             <ProductPage
-              url="http://localhost:4000/mentherapies"
+              url="https://care-at-home.onrender.com/mentherapies"
               heading="Massage for Men"
               rating="4.85 (156K)"
             />
@@ -67,7 +67,7 @@ const MainRoutes = () => {
           path="/womentherapies"
           element={
             <ProductPage
-              url="http://localhost:4000/womentherapies"
+              url="https://care-at-home.onrender.com/womentherapies"
               heading="Spa for Women"
               rating="4.81 (189K)"
             />
@@ -77,7 +77,7 @@ const MainRoutes = () => {
           path="/womenhair"
           element={
             <ProductPage
-              url="http://localhost:4000/womenhair"
+              url="https://care-at-home.onrender.com/womenhair"
               heading="Hair Studio for Women"
               rating="4.78 (26K)"
             />
