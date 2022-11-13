@@ -2,7 +2,7 @@ const { cartProd } = require("../Models/cartprod.model");
 
 const addToCart = async (req, res) => {
   const { title, price, quantity, userId } = req.body;
-  const existing = await cartProd.findOne({title})
+  const existing = await cartProd.findOne({title,userId})
   if(existing){
     res.send("Already in the cart")
   }

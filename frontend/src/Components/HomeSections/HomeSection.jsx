@@ -114,6 +114,7 @@ const HomeSection = () => {
           />
           <Flex className={styles.linksDiv}>
             <Link>Blog</Link>
+            <Link to="/booking">Bookings</Link>
             <Link>Register As A Professional</Link>
             {/* <Text style={{ cursor: "pointer" }} onClick={onOpen}> */}
               {!data.isAuth ? (
