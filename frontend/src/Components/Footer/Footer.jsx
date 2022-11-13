@@ -1,6 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import { SimpleGrid, Box } from "@chakra-ui/react";
+import Logo from "../../Assets/care@home_logo.png";
 import {
   FaTwitter,
   FaFacebookSquare,
@@ -146,7 +147,7 @@ const Footer = () => {
           <Box>
             <div className="f_logo">
               <img
-                src="https://res.cloudinary.com/urbanclap/image/upload/images/growth/home-screen/1631097450980-d2de38.png"
+                src={Logo}
                 alt="footerlogo"
               />
             </div>
