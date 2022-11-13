@@ -1,13 +1,13 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Homepage from "../Pages/Homepage/Homepage";
-import Booking from "../Pages/Booking";
 import Signup from "../Components/Auth/Signup";
 import Login from "../Components/Auth/Login";
 import ProductPage from "../Components/ProductPage";
 import Cart from "../Pages/Cart";
 import Payments from "../Pages/Payments";
 import { PrivatRoute } from "./PrivateRoute";
+import BookingList from "../Components/BookingList";
 
 const MainRoutes = () => {
   return (
@@ -16,9 +16,23 @@ const MainRoutes = () => {
         <Route path="/" element={<Homepage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/booking" element={<Booking />} />
-        <Route path="/cart" element={<PrivatRoute><Cart /></PrivatRoute>} />
-        <Route path="/payments" element={<PrivatRoute><Payments /></PrivatRoute>} />
+        <Route path="/booking" element={<BookingList />} />
+        <Route
+          path="/cart"
+          element={
+            <PrivatRoute>
+              <Cart />
+            </PrivatRoute>
+          }
+        />
+        <Route
+          path="/payments"
+          element={
+            <PrivatRoute>
+              <Payments />
+            </PrivatRoute>
+          }
+        />
         <Route
           path="/salon"
           element={
