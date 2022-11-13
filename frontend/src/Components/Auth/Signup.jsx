@@ -21,7 +21,7 @@ function Signup({onClose}) {
     const payload = formData;
     // console.log(payload)
     axios
-      .post("http://localhost:4000/signup", payload)
+      .post("https://care-at-home.onrender.com/signup", payload)
       .then((res) => {
         console.log(res.data);
         onClose()

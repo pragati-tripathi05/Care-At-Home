@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 import { accessData } from '../utils/localStorage';
 
 const Payments = () => {
-  const total = accessData("total")
+  const total = accessData("total");
+  
   return (
     <div style={{backgroundColor:"#e5e5e5"}}>
       <div className='contain'>

@@ -38,13 +38,14 @@ import { accessData } from "../../utils/localStorage";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutAction } from "../../Redux/action";
 import { HamburgerMenu } from "../HamburgerMenu";
+import Logo from "../../Assets/care@home_logo.png";
+
 const HomeSection = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navbarRef = React.useRef();
   const [isVisible, setisVisible] = useState();
-  
-
   const isAuth = accessData("isAuth");
+  
   const data = useSelector((state) => {
     return state.reducer;
   });
@@ -105,7 +106,7 @@ const HomeSection = () => {
 
     navigator.geolocation.getCurrentPosition(success, error, options);
   }
-  function getDataLocation(lat, lon) {
+  const getDataLocation = (lat, lon)=>{
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=d11e2713cdace67cd72e441e55b790d4`;
     fetch(url)
       .then(function (res) {
@@ -127,11 +128,12 @@ const HomeSection = () => {
        {windowSize.innerWidth > 640 ?  (<Flex className={styles.topNavbar}>
           <Image
             className={styles.logo}
-            src="https://res.cloudinary.com/urbanclap/image/upload/images/growth/home-screen/1631097450980-d2de38.png"
+            src={Logo}
             alt="Logo"
           />
           <Flex className={styles.linksDiv}>
             <Link>Blog</Link>
+            <Link to="/booking">Bookings</Link>
             <Link>Register As A Professional</Link>
             {/* <Text style={{ cursor: "pointer" }} onClick={onOpen}> */}
               {!data.isAuth ? (
@@ -194,15 +196,16 @@ const HomeSection = () => {
             as="h1"
             style={{
               color: "white",
-              fontSize: "48px",
               marginBottom: "2.5rem",
               fontFamily: "Roboto",
             }}
+            fontSize={{sm:"44px",md:"44px",lg:"48px"}}
           >
             Home services, on demand.
           </Heading>
-          <Flex gap="25px" w="50%" m="auto">
-            <Popover>
+          <Flex  direction={{sm:"row",md:"row",lg:"row"}} gap="25px" w={{sm:"80%",md:"70%",lg:"50%"}} m="auto">
+            <Box>
+              <Popover>
               <PopoverTrigger >
                 <Flex onClick={()=>gettingLocation()} className={styles.locationfield}>
                   <Image
@@ -240,7 +243,7 @@ const HomeSection = () => {
                     }}
                   >
                     <InputLeftElement
-                      height="100%"
+                      // height="100%"
                       pointerEvents="none"
                       children={
                         <AiOutlineSearch
@@ -251,12 +254,13 @@ const HomeSection = () => {
                     <Input
                       type="text"
                       placeholder="Search for services"
-                      size="lg"
+                      size={{sm:"sm",md:"md",lg:"lg"}}
                     />
                   </InputGroup>
                 </PopoverBody>
               </PopoverContent>
             </Popover>
+            </Box>
             <Box flex="1">
               <InputGroup
                 style={{
@@ -301,7 +305,7 @@ const HomeSection = () => {
         </Box>
         {/* Search Section End */}
         {/* Service Section-1 Cards Starts */}
-        <Flex justify="center" className={styles.serviceCardSection1}>
+        <Flex wrap="wrap" justify="center" className={styles.serviceCardSection1}>
           <Link to="/salon"><Box className={styles.serviceCard}>
             <Box>
               <Image
@@ -323,6 +327,7 @@ const HomeSection = () => {
             </Box>
             <Text fontSize="13px">Hair, Skin & nails</Text>
           </Box></Link>
+          <Link to="/mensalon">
           <Box className={styles.serviceCard}>
             <Box>
               <Image
@@ -332,7 +337,8 @@ const HomeSection = () => {
               />
             </Box>
             <Text fontSize="13px">Salon for men</Text>
-          </Box>
+          </Box></Link>
+          <Link to="/mentherapies">
           <Box className={styles.serviceCard}>
             <Box>
               <Image
@@ -342,7 +348,7 @@ const HomeSection = () => {
               />
             </Box>
             <Text fontSize="13px">Men's therapies</Text>
-          </Box>
+          </Box></Link>
         </Flex>
         {/* Service Section-1 Cards End */}
       </Box>
@@ -352,7 +358,7 @@ const HomeSection = () => {
           Home Services
         </Heading>
         {/* Service Section-2 Cards Starts */}
-        <Flex className={styles.serviceCardSection2}>
+        <Flex wrap="wrap" justify="center" className={styles.serviceCardSection2}>
           <Box className={styles.serviceCard}>
             <Box>
               <Image
@@ -412,7 +418,7 @@ const HomeSection = () => {
         ""
       ) : (
         <Flex className={styles.scrollNavbar}>
-          <Box flex="2">
+          <Box flex={{sm:"3",md:"3",lg:"2"}}>
             <InputGroup
               style={{
                 backgroundColor: "white",
@@ -431,7 +437,8 @@ const HomeSection = () => {
               <Input type="text" placeholder="Search for services" size="lg" />
             </InputGroup>
           </Box>
-          <Flex gap="1rem">
+          <Flex gap={{md:"20px",lg:"1rem"}}>
+            <Link to="/womentherapies">
             <Box className={styles.navbarServiceCards}>
               <Box>
                 <Image
@@ -441,7 +448,8 @@ const HomeSection = () => {
                 />
               </Box>
               <Text fontSize="10px">Women's therapies</Text>
-            </Box>
+            </Box></Link>
+            <Link to="/mensalon">
             <Box className={styles.navbarServiceCards}>
               <Box>
                 <Image
@@ -451,8 +459,9 @@ const HomeSection = () => {
                 />
               </Box>
               <Text fontSize="10px">Salon for men</Text>
-            </Box>
-            <Box className={styles.navbarServiceCards}>
+            </Box></Link>
+            <Link to="/mentherapies">
+              <Box className={styles.navbarServiceCards}>
               <Box>
                 <Image
                   width="28px"
@@ -462,6 +471,7 @@ const HomeSection = () => {
               </Box>
               <Text fontSize="10px">Men's therapies</Text>
             </Box>
+            </Link>
           </Flex>
         </Flex>
       )}

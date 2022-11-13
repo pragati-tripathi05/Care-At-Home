@@ -69,7 +69,7 @@ const ProductPage = ({ url, heading, rating }) => {
               </Button>
             </Flex>
             <Flex>
-              <Heading as="h1">{heading}</Heading>
+              <Heading as="h1" style={{fontFamily:"Roboto"}}>{heading}</Heading>
             </Flex>
             <Flex fontSize="12px">
               <svg
