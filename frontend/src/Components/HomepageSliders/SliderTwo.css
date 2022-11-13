@@ -1,0 +1,13 @@
+.content_imag{
+    border-radius: 17px;
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+    padding-right:4%;
+}
+
+.content_imag:hover{
+    border-radius: 15px;
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+    padding-right:4%;
+}

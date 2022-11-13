@@ -9,7 +9,7 @@ import Luxury from "../../Components/HomeSections/Luxury";
 import NewCateg from "../../Components/HomeSections/NewCateg";
 import PestControl from "../../Components/HomeSections/PestControl";
 import Repairs from "../../Components/HomeSections/Repairs";
-import SsmServices from "../../Components/HomeSections/SsmServices";
+import SliderTwo from "../../Components/HomepageSliders/SliderTwo";
 
 const Homepage = () => {
   return (
@@ -31,8 +31,8 @@ const Homepage = () => {
           <Appliances />
         </div>
         <br />
-        <div  className="outlines" >
-          <SsmServices />
+        <div className="outlines">
+          <SliderTwo />
         </div>
         <br />
         <div  className="outlines" >
