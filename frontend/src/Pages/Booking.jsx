@@ -9,8 +9,8 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { Link, Navigate } from "react-router-dom";
-const Booking = () => {
-
+const Booking = ({bookingData}) => {
+console.log(bookingData)
   return (
     <>
       <div className="mybooking_div">
@@ -57,6 +57,11 @@ const Booking = () => {
               </Tab>
             </TabList>
           </Tabs>
+          <div>
+            <div>{bookingData.price}</div>
+            <div>{bookingData.quantity}</div>
+            <div>{bookingData.title}</div>
+          </div>
           <Text
             fontFamily={
               "axiforma-regular,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;"
