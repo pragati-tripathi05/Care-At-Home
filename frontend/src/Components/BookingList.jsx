@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBookings } from "../Redux/AppReducer/action";
+import "./BookingList.css";
 import {
   Tabs,
   TabList,
@@ -65,24 +66,27 @@ const BookingList = () => {
                 HISTORY
               </Tab>
             </TabList>
-          </Tabs>
-          <div>
+            </Tabs>
+         
+          <div id="mapping">
             {data?.map((ele) => (
-              <div key={ele._id}>
-                <img src={ele.image}/>
+              <div id="card" key={ele._id}>
+                <img src={ele.image} width={"200px"} />
+                <div id="bold">{ele.title}</div>
                 <div>{ele.price}</div>
                 <div>{ele.quantity}</div>
-                <div>{ele.title}</div>
               </div>
             ))}
           </div>
+        
           <Text
             fontFamily={
               "axiforma-regular,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;"
             }
             fontSize={"18px"}
           >
-            You don't have any projects right now
+            {!data?
+            "You don't have any projects right now":null}
           </Text>
           <br />
           <Button
