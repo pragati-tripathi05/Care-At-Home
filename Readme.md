@@ -3,6 +3,8 @@
 #### psychotic-yam-1841 - _Urban Company Clone_
 
 <img src="https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/src/Assets/care%40home_logo.png"/>
+
+# **CareAtHome**
 <br/>
 
 ## Deployed site » https://care-at-home-mauve.vercel.app/
