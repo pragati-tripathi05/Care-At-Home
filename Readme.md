@@ -36,6 +36,8 @@
          - Payments
          - Booking History
 
+<br/>
+
 ## Contributors
 
 - fw14_540 - <a href="https://github.com/ramanabandapu"> Ramana Bandapu </a>
@@ -43,6 +45,8 @@
 - fw17_0846 - <a href="https://github.com/Md-Gulzeesh"> Md Gulzeesh </a>
 - fw18_0997 - <a href="https://github.com/HackerSushant76"> Sushant Singh Yadav </a>
 - fw17_0323 - <a href="https://github.com/pragati-tripathi05"> Pragati Tripathi </a>
+
+<br/>
 
 ## Glimpse of our website
 
