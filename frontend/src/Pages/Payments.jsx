@@ -8,15 +8,20 @@ import {
   StackDivider,
   Text,
   VStack,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 import React from "react";
 import "./Payments.css";
 import { ArrowBackIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
+import { useToast } from "@chakra-ui/react";
 import { accessData } from "../utils/localStorage";
 
 const Payments = () => {
   const total = accessData("total");
+  const positions = ["top-right"];
+  const toast = useToast();
 
   return (
     <div style={{ backgroundColor: "#e5e5e5" }}>
@@ -208,11 +213,28 @@ const Payments = () => {
         </VStack>
 
         <br />
-        <Link to="/">
-          <Button colorScheme={"#6e42e5"} className="home">
-            Back to Home
-          </Button>
-        </Link>
+        <Wrap>
+          {positions.map((position, i) => (
+            <WrapItem key={i}>
+              <Link to="/">
+                <Button
+                  colorScheme={"#6e42e5"}
+                  className="home"
+                  onClick={() =>
+                    toast({
+                      title: `Payment Successful`,
+                      position: position,
+                      status: "success",
+                      isClosable: true,
+                    })
+                  }
+                >
+                  Back to Home
+                </Button>
+              </Link>
+            </WrapItem>
+          ))}
+        </Wrap>
       </div>
     </div>
   );
