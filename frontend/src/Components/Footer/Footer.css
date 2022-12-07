@@ -1,122 +1,118 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    /* font-family: "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; */
-  }
-  
-  .footer_container {
-    background-color: black;
-    width: 100%;
-    height: auto;
-    font-weight: bold;
-    font-size: 14px;
-    padding: 16px 0px;
-    color: #b6b4b4;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  /* font-family: "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; */
+}
 
-  .footer_top  :hover{
-    color: rgb(215, 213, 213);
-  }
+.footer_container {
+  background-color: black;
+  width: 100%;
+  height: auto;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 16px 0px;
+  color: #b6b4b4;
+}
 
-  .footer_top {
-    border-bottom: 1px solid grey;
-    width: 95%;
-    margin: auto;
-  }
-  .footer_top ul {
-    display: flex;
-    list-style: none;
-  }
-  .footer_top ul li {
-    padding: 10px 10px 10px 5px;
-  }
+.footer_top :hover {
+  color: rgb(215, 213, 213);
+}
 
-  .footer_top ul li:hover{
-    cursor: pointer;
-  }
+.footer_top {
+  border-bottom: 1px solid grey;
+  width: 95%;
+  margin: auto;
+}
+.footer_top ul {
+  display: flex;
+  list-style: none;
+}
+.footer_top ul li {
+  padding: 10px 10px 10px 5px;
+}
 
+.footer_top ul li:hover {
+  cursor: pointer;
+}
 
-  /* ==========================Mid========================================= */
-  .footer_mid {
-    border-bottom: 2px solid grey;
-    width: 95%;
-    margin: auto;
-  }
-  
-  .footer_mid:hover{
-    color: rgb(215, 213, 213);
-  }
+/* ==========================Mid========================================= */
+.footer_mid {
+  border-bottom: 2px solid grey;
+  width: 95%;
+  margin: auto;
+}
 
-  .Footer__countriesRoot li {
-    list-style: none;
-    text-align: start;
-  }
+.footer_mid:hover {
+  color: rgb(215, 213, 213);
+}
 
-  .Footer__countriesRoot li:hover{
-    cursor: pointer;
-  }
-  
-  .Footer__countriesRoot ul {
-    display: flex;
-    list-style: none;
-  }
-  .Footer__countriesRoot ul li {
-    padding: 10px 10px 10px 5px;
-    list-style: none;
-  }
+.Footer__countriesRoot li {
+  list-style: none;
+  text-align: start;
+}
 
-  .Footer__countriesRoot ul li:hover{
-    cursor: pointer;
-  }
+.Footer__countriesRoot li:hover {
+  cursor: pointer;
+}
 
-  .Footer__countryName_ind {
-    /* border: 2px solid red; */
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  /* ==========================bottom========================================= */
-  
-  .footer_bottom {
-    width: 90%;
-    margin: auto;
-    padding: 20px 0;
-  }
-  
-  .f_logo img {
-    height: 50px;
-    width: 200px;
-    cursor: pointer;
-  }
-  .copy_right {
-    margin: 10px 0 0 -50px;
-  }
-  .copy_right span {
-    font-size: 13px;
-    color: #ffffff;
-  }
-  .footer_icons {
-    display: flex;
-    margin: 10px 0 0 0px;
-  }
-  .footer_icons div {
-    font-size: 22px;
-    color: #ffffff;
-    padding: 7px;
-    cursor: pointer;
-  
-  }
-  
-  .footer_store {
-    display: flex;
-  }
-  .footer_store img {
-    height: 50px;
-    width: 50%;
-    cursor: pointer;
-  }
-  
+.Footer__countriesRoot ul {
+  display: flex;
+  list-style: none;
+}
+.Footer__countriesRoot ul li {
+  padding: 10px 10px 10px 5px;
+  list-style: none;
+}
+
+.Footer__countriesRoot ul li:hover {
+  cursor: pointer;
+}
+
+.Footer__countryName_ind {
+  /* border: 2px solid red; */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* ==========================bottom========================================= */
+
+.footer_bottom {
+  width: 90%;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.f_logo img {
+  height: 50px;
+  width: 200px;
+  cursor: pointer;
+}
+.copy_right {
+  margin: 10px 0 0 -50px;
+}
+.copy_right span {
+  font-size: 13px;
+  color: #ffffff;
+}
+.footer_icons {
+  display: flex;
+  margin: 10px 0 0 0px;
+}
+.footer_icons div {
+  font-size: 22px;
+  color: #ffffff;
+  padding: 7px;
+  cursor: pointer;
+}
+
+.footer_store {
+  display: flex;
+}
+.footer_store img {
+  height: 50px;
+  width: 50%;
+  cursor: pointer;
+}

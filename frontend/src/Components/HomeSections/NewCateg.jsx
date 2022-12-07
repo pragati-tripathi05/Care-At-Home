@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import "./NewCateg.css";
 import { Box, SimpleGrid } from "@chakra-ui/react";
 
 const NewCateg = () => {
   return (
     <div>
-       <div className="newcateg_offer">
+      <div className="newcateg_offer">
         <div className="offer_text">
           <h1>New Category Launches</h1>
         </div>
@@ -79,7 +79,7 @@ const NewCateg = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default NewCateg
+export default NewCateg;

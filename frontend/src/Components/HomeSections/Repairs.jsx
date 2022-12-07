@@ -1,18 +1,17 @@
-import React from 'react';
+import React from "react";
 import "./SsmServices.css";
 import { Box, SimpleGrid } from "@chakra-ui/react";
 
 const Repairs = () => {
   return (
     <div>
-       <div className="bestdeal_offer">
+      <div className="bestdeal_offer">
         <div className="offer_text">
           <h1>Home Repairs</h1>
         </div>
         <div className="offer_content">
           <SimpleGrid columns={[1, 2, 3, 4]} spacing="30px">
-
-          <Box>
+            <Box>
               <div className="content_box">
                 <div className="content_img">
                   <img
@@ -67,13 +66,11 @@ const Repairs = () => {
                 </div>
               </div>
             </Box>
-
-            
           </SimpleGrid>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Repairs
+export default Repairs;

@@ -1,7 +1,7 @@
-import { Button, Heading, Input, useToast } from "@chakra-ui/react";
+import { Input, useToast } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   loginFailureAction,
   loginRequestAction,
@@ -9,12 +9,12 @@ import {
 } from "../../Redux/action";
 import { useNavigate } from "react-router-dom";
 
-function Login({onClose}) {
+function Login({ onClose }) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-  const toast = useToast()
+  const toast = useToast();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -38,10 +38,10 @@ function Login({onClose}) {
           status: "success",
           duration: 2000,
           isClosable: true,
-          position: "top-left"
+          position: "top-left",
         });
         dispatch(loginSuccessAction(res.data));
-        onClose()
+        onClose();
         navigate("/");
       })
       .catch((err) => {
@@ -51,7 +51,7 @@ function Login({onClose}) {
           status: "error",
           duration: 2000,
           isClosable: true,
-          position: "top-left"
+          position: "top-left",
         });
         dispatch(loginFailureAction());
       });
@@ -82,7 +82,7 @@ function Login({onClose}) {
         onChange={handleChange}
       />
       <br />
-      <Input type="submit" value="Login" w="100px" color={"white"} bg="black"/>
+      <Input type="submit" value="Login" w="100px" color={"white"} bg="black" />
     </form>
   );
 }

@@ -68,7 +68,7 @@ export default class SliderTwo extends Component {
               className="content_imag"
             />
             <div className="content_category">
-            <p>Spa for Women</p>
+              <p>Spa for Women</p>
             </div>
             <div className="content_price">
               <span>Free head massage</span>
