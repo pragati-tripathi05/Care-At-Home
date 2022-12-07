@@ -12,7 +12,7 @@ const GoogleSignin = () => {
     document.getElementById("signInDiv").hidden = true;
   }
 
-  function handleSignOut(e){
+  function handleSignOut(e) {
     setUser({});
     document.getElementById("signInDiv").hidden = false;
   }
@@ -30,20 +30,22 @@ const GoogleSignin = () => {
       size: "large",
     });
   }, []);
-  
+
   return (
     <div>
-      <div id="signInDiv" style={{ marginTop: "5%", alignItems:"center" }} ></div>
-      {
-        Object.keys(user).length !== 0 && <button onClick={(e) => handleSignOut(e)}>SignOut</button>
-      }
-        {user && (
-          <div>
-            <img src={user.picture} />
-            <h4>{user.name}</h4>
-          </div>
-        )}
-      
+      <div
+        id="signInDiv"
+        style={{ marginTop: "5%", alignItems: "center" }}
+      ></div>
+      {Object.keys(user).length !== 0 && (
+        <button onClick={(e) => handleSignOut(e)}>SignOut</button>
+      )}
+      {user && (
+        <div>
+          <img src={user.picture} />
+          <h4>{user.name}</h4>
+        </div>
+      )}
     </div>
   );
 };

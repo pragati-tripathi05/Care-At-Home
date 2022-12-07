@@ -2,15 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBookings } from "../Redux/AppReducer/action";
 import "./BookingList.css";
-import {
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  Button,
-  Text,
-} from "@chakra-ui/react";
+import { Tabs, TabList, Tab, Button, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const BookingList = () => {

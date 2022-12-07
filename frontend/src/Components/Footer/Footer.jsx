@@ -146,10 +146,7 @@ const Footer = () => {
         <SimpleGrid columns={[1, 2, 3, 4]} spacing="10px">
           <Box>
             <div className="f_logo">
-              <img
-                src={Logo}
-                alt="footerlogo"
-              />
+              <img src={Logo} alt="footerlogo" />
             </div>
           </Box>
           <Box>

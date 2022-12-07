@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import "./SsmServices.css";
 import { Box, SimpleGrid } from "@chakra-ui/react";
 
@@ -12,8 +12,7 @@ const Luxury = () => {
         </div>
         <div className="offer_content">
           <SimpleGrid columns={[1, 2, 3, 4]} spacing="30px">
-
-          <Box>
+            <Box>
               <div className="content_box">
                 <div className="content_img">
                   <img
@@ -68,13 +67,11 @@ const Luxury = () => {
                 </div>
               </div>
             </Box>
-
-            
           </SimpleGrid>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Luxury
+export default Luxury;

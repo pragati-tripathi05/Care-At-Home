@@ -121,9 +121,8 @@
       "cover_photo": "",
       "book_name": "Full-Stack Web Development",
       "category": "Novel",
-      "release_year": 2016
-      
-      ,
+      "release_year": 2016,
+
       "chapters": [
         {
           "name": "HTML",
@@ -191,6 +190,6 @@
           "pages": 20
         }
       ]
-    }   
+    }
   ]
 }

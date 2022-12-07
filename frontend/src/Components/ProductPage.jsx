@@ -3,6 +3,7 @@ import {
   Button,
   Flex,
   Heading,
+  Skeleton,
   Stack,
   Text,
   VStack,
@@ -18,11 +19,12 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 const ProductPage = ({ url, heading, rating }) => {
   const [data, setData] = useState([]);
   const token = JSON.parse(localStorage.getItem("token"));
+  const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     axios(url)
       .then((res) => {
-        // console.log(res.data);
         setData(res.data);
+        setIsLoaded(true);
       })
       .catch((err) => console.log(err));
   }, [url]);
@@ -145,21 +147,23 @@ const ProductPage = ({ url, heading, rating }) => {
           width="60%"
           borderRight="1px solid gainsboro"
         >
-          {data.map((elem) => (
-            <ProductItem
-              key={elem._id}
-              prodId={elem._id}
-              packageName={elem.package}
-              description={elem.description}
-              rating={elem.rating}
-              views={elem.views}
-              price={elem.price}
-              time={elem.time}
-              feature={elem.feature}
-              image={elem.image}
-              benefits={elem.benefits}
-              benefitssec={elem.benefitssec}
-            />
+          {data?.map((elem) => (
+            <Skeleton width={"100%"} isLoaded={isLoaded}>
+              <ProductItem
+                key={elem._id}
+                prodId={elem._id}
+                packageName={elem.package}
+                description={elem.description}
+                rating={elem.rating}
+                views={elem.views}
+                price={elem.price}
+                time={elem.time}
+                feature={elem.feature}
+                image={elem.image}
+                benefits={elem.benefits}
+                benefitssec={elem.benefitssec}
+              />
+            </Skeleton>
           ))}
         </VStack>
         <VStack
