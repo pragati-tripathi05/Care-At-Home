@@ -8,9 +8,9 @@
 ### CareAtHome is an online platform helping customers to book reliable & high quality services, delivered by trained professionals conveniently at home.
 > **Note**: It will take some time to sign in,sign up and load services data at first because the backend is hosted on render.com, which takes some time to start.
 
-## Deployed site Link:- [](https://care-at-home-mauve.vercel.app/)
+## Deployed site Link:- [Care_at_home_live_link](https://care-at-home-mauve.vercel.app/)
 
-## Deployed backend :- [](https://care-at-home.onrender.com/)
+## Deployed backend :- [care_at_home_backend_live_link](https://care-at-home.onrender.com/)
 ### Original site » https://www.urbancompany.com
 
 <br />
