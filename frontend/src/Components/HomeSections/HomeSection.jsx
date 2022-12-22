@@ -80,7 +80,7 @@ const HomeSection = () => {
     observer.observe(navbarRef.current);
   }, []);
 
-  // **************************Getting Location**********************
+  // **************************Getting Location*******************************************
   const [cityname, setCityname] = useState("Delhi NCR");
   const gettingLocation = () => {
     var options = {
@@ -120,6 +120,8 @@ const HomeSection = () => {
         console.log(err);
       });
   };
+
+  // ****************************************************************************************
   return (
     <Box ref={navbarRef}>
       <Box className={styles.homeSection}>

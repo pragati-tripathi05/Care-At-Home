@@ -62,3 +62,12 @@ img {
     color: black;
   }
   
+
+  .bookingDetails{
+    height: 100%;
+    width: 90%;
+    margin: auto;
+    margin-top: 25px;
+    background-color: #e3e3e3;
+   
+  }

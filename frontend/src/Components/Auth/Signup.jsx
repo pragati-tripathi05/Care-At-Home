@@ -38,6 +38,7 @@ function Signup({onClose}) {
       });
   };
   return (
+   
     <form onSubmit={handleSubmit} style={{ width: "90%", textAlign: "center" }}>
       {/* <Heading>Signup</Heading> */}
       <br />
@@ -76,6 +77,7 @@ function Signup({onClose}) {
       <br />
       <Input type="submit" value="Signup" w="100px" color={"white"} bg="black"/>
     </form>
+   
   );
 }
 
