@@ -1,4 +1,11 @@
-import { Box, Button, Heading, Text, useToast } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Heading,
+  Skeleton,
+  Text,
+  useToast,
+} from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import styles from "./Cart.module.css";
 import axios from "axios";
@@ -10,11 +17,12 @@ import { AddIcon, ArrowBackIcon, MinusIcon } from "@chakra-ui/icons";
 function Cart() {
   const [cartData, setCartData] = useState([]);
   const [total, setTotal] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
   const token = useSelector((state) => {
     return state.reducer.token;
   });
   // console.log(token)
-  const toast = useToast()
+  const toast = useToast();
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -24,9 +32,9 @@ function Cart() {
     axios
       .get("https://care-at-home.onrender.com/cart", config)
       .then((res) => {
-        // console.log(res.data);
         setCartData(res.data);
         gettotal(res.data);
+        setIsLoaded(true);
       })
       .catch((err) => {
         console.log(err);
@@ -34,7 +42,11 @@ function Cart() {
   };
   const incQuantity = (id) => {
     axios
-      .patch(`https://care-at-home.onrender.com/cart/inc/${id}`, "noPayload", config)
+      .patch(
+        `https://care-at-home.onrender.com/cart/inc/${id}`,
+        "noPayload",
+        config
+      )
       .then((res) => {
         console.log(res.data);
         toast({
@@ -42,7 +54,7 @@ function Cart() {
           status: "success",
           duration: 2000,
           isClosable: true,
-          position: "top-right"
+          position: "top-right",
         });
       })
       .catch((err) => {
@@ -53,7 +65,11 @@ function Cart() {
   };
   const decQuantity = (id) => {
     axios
-      .patch(`https://care-at-home.onrender.com/cart/dec/${id}`, "noPayload", config)
+      .patch(
+        `https://care-at-home.onrender.com/cart/dec/${id}`,
+        "noPayload",
+        config
+      )
       .then((res) => {
         console.log(res.data);
         toast({
@@ -61,7 +77,7 @@ function Cart() {
           status: "error",
           duration: 2000,
           isClosable: true,
-          position: "top-right"
+          position: "top-right",
         });
       })
       .catch((err) => {
@@ -89,8 +105,8 @@ function Cart() {
     <Box id={styles.cartwindow}>
       <Heading textAlign={"left"} style={{ fontFamily: "Roboto" }}>
         {" "}
-        <Link to="/salon" >
-          <ArrowBackIcon style={{ backgroundColor: "white" }} mr="20px"/>
+        <Link to="/salon">
+          <ArrowBackIcon style={{ backgroundColor: "white" }} mr="20px" />
         </Link>
         Summary
       </Heading>
@@ -104,25 +120,27 @@ function Cart() {
           {cartData?.map((elem) => (
             <>
               <br />
-              <Box className={styles.cartprod}>
-                <Box>{elem.title}</Box>
-                <Box id={styles.qtybox}>
-                  <button
-                    bgColor="#F1D2D2"
-                    onClick={() => decQuantity(elem._id)}
-                  >
-                    <MinusIcon />
-                  </button>
-                  <Box>{elem.quantity}</Box>
-                  <button
-                    bgColor="#F1D2D2"
-                    onClick={() => incQuantity(elem._id)}
-                  >
-                    <AddIcon/>
-                  </button>
+              <Skeleton isLoaded={isLoaded}>
+                <Box className={styles.cartprod}>
+                  <Box>{elem.title}</Box>
+                  <Box id={styles.qtybox}>
+                    <button
+                      bgColor="#F1D2D2"
+                      onClick={() => decQuantity(elem._id)}
+                    >
+                      <MinusIcon />
+                    </button>
+                    <Box>{elem.quantity}</Box>
+                    <button
+                      bgColor="#F1D2D2"
+                      onClick={() => incQuantity(elem._id)}
+                    >
+                      <AddIcon />
+                    </button>
+                  </Box>
+                  <Box>₹{elem.price * elem.quantity}</Box>
                 </Box>
-                <Box>₹{elem.price * elem.quantity}</Box>
-              </Box>
+              </Skeleton>
               <hr />
             </>
           ))}
@@ -168,8 +186,10 @@ function Cart() {
             <Link to="/payments">
               {" "}
               <Button
+                disabled={cartData.length === 0}
                 bg="rgb(110, 66, 229)"
-                color={"white"} _hover={{backgroundColor:"rgb(120, 79, 232)"}}
+                color={"white"}
+                _hover={{ backgroundColor: "rgb(120, 79, 232)" }}
               >{` Proceed to Payments`}</Button>
             </Link>
           </Box>

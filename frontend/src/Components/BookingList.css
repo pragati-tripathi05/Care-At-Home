@@ -31,9 +31,8 @@ img {
 
 /* -------------------------------------------------- */
 
-
-
 .Ongoing {
+
     border-radius: .5px;
   
     padding: "20px 40px";
@@ -52,16 +51,7 @@ img {
     padding: "20px 50px";
   }
   
-  #dark {
-    background-color: black;
-    color: white;
-  }
-  
-  #light {
-    background-color: white;
-    color: black;
-  }
-  
+
 
   .bookingDetails{
     height: 100%;
@@ -71,3 +61,23 @@ img {
     background-color: #e3e3e3;
    
   }
+
+
+
+#book {
+  border-radius: 0%;
+  background-color: black;
+  color: white;
+  padding: "20px 50px";
+}
+
+#dark {
+  background-color: black;
+  color: white;
+}
+
+#light {
+  background-color: white;
+  color: black;
+}
+

@@ -1,32 +1,25 @@
 import {
   Drawer,
   DrawerBody,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
-  Radio,
   useDisclosure,
-  RadioGroup,
   Stack,
   Button,
   Box,
-  Image,
-  Flex,
   Text,
   Avatar,
 } from "@chakra-ui/react";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
 import { logoutAction } from "../Redux/action";
 import Login from "./Auth/Login";
 import { SignupDrawer } from "./Auth/SignupDrawer";
 
 function Hamburg({ close }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [placement, setPlacement] = React.useState("right");
   const data = useSelector((state) => {
     return state.reducer;
   });

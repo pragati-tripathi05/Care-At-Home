@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
-import {Provider} from "react-redux"
+import { Provider } from "react-redux";
 import { store } from "./Redux/store";
 
 const theme = extendTheme({
@@ -23,15 +23,13 @@ const theme = extendTheme({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // console.log(store.getState())
 root.render(
-
-    <Provider store={store}>
+  <Provider store={store}>
     <ChakraProvider theme={theme}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </ChakraProvider>
-    </Provider>
-  
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

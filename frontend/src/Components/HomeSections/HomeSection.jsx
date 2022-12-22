@@ -23,6 +23,7 @@ import {
   Stack,
   Text,
   useDisclosure,
+  useToast,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import styles from "./HomeSection.module.css";
@@ -34,7 +35,6 @@ import { Link } from "react-router-dom";
 import Login from "../Auth/Login";
 import { SignupDrawer } from "../Auth/SignupDrawer";
 import { saveData } from "../../utils/localStorage";
-import { accessData } from "../../utils/localStorage";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutAction } from "../../Redux/action";
 import { HamburgerMenu } from "../HamburgerMenu";
@@ -43,9 +43,8 @@ import Logo from "../../Assets/care@home_logo.png";
 const HomeSection = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navbarRef = React.useRef();
+  const toast = useToast();
   const [isVisible, setisVisible] = useState();
-  const isAuth = accessData("isAuth");
-
   const data = useSelector((state) => {
     return state.reducer;
   });
@@ -53,6 +52,13 @@ const HomeSection = () => {
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logoutAction());
+    toast({
+      title: "Logout success",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+      position: "top",
+    });
   };
 
   const [windowSize, setWindowSize] = useState(getWindowSize());
@@ -126,7 +132,7 @@ const HomeSection = () => {
     <Box ref={navbarRef}>
       <Box className={styles.homeSection}>
         {/* Top Navbar Starts */}
-        {windowSize.innerWidth > 640 ? (
+        {windowSize.innerWidth > 1007 ? (
           <Flex className={styles.topNavbar}>
             <Image className={styles.logo} src={Logo} alt="Logo" />
             <Flex className={styles.linksDiv}>
@@ -208,14 +214,14 @@ const HomeSection = () => {
               marginBottom: "2.5rem",
               fontFamily: "Roboto",
             }}
-            fontSize={{ sm: "44px", md: "44px", lg: "48px" }}
+            fontSize={{ base: "40px", md: "44px", lg: "48px" }}
           >
             Home services, on demand.
           </Heading>
           <Flex
             direction={{ sm: "row", md: "row", lg: "row" }}
             gap="25px"
-            w={{ sm: "80%", md: "70%", lg: "50%" }}
+            w={{ base: "80%", md: "70%", lg: "50%" }}
             m="auto"
           >
             <Box>
@@ -305,7 +311,13 @@ const HomeSection = () => {
               </InputGroup>
             </Box>
           </Flex>
-          <Text ml="-1.5rem" mt="0.5rem" color="white" fontSize="16px">
+          <Text
+            w={{ base: "60%", md: "100%", lg: "100%" }}
+            ml="-1.5rem"
+            mt="0.5rem"
+            color="white"
+            fontSize={{ base: "12px", md: "16px", lg: "16px" }}
+          >
             <Link>
               <u>Women's Therapies</u>
             </Link>
@@ -444,7 +456,7 @@ const HomeSection = () => {
       </Box>
       {/* Home Services End */}
       {/* Navbar which opens on scroll start */}
-      {isVisible == true || windowSize.innerWidth < 640 ? (
+      {windowSize.innerWidth < 1007 || isVisible ? (
         ""
       ) : (
         <Flex className={styles.scrollNavbar}>

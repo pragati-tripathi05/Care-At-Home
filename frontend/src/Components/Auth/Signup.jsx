@@ -1,14 +1,14 @@
-import { Button, Heading, Input, useToast } from "@chakra-ui/react";
+import { Input, useToast } from "@chakra-ui/react";
 import React, { useState } from "react";
-import axios from  "axios"
+import axios from "axios";
 
-function Signup({onClose}) {
+function Signup({ onClose }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     password: "",
   });
-  const toast = useToast()
+  const toast = useToast();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -24,13 +24,13 @@ function Signup({onClose}) {
       .post("https://care-at-home.onrender.com/signup", payload)
       .then((res) => {
         console.log(res.data);
-        onClose()
+        onClose();
         toast({
           title: res.data,
           status: "success",
           duration: 2000,
           isClosable: true,
-          position: "top-left"
+          position: "top-left",
         });
       })
       .catch((err) => {
@@ -75,7 +75,13 @@ function Signup({onClose}) {
         onChange={handleChange}
       />
       <br />
-      <Input type="submit" value="Signup" w="100px" color={"white"} bg="black"/>
+      <Input
+        type="submit"
+        value="Signup"
+        w="100px"
+        color={"white"}
+        bg="black"
+      />
     </form>
    
   );

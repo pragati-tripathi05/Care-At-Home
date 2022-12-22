@@ -23,11 +23,11 @@ const Homepage = () => {
       </div>
       <div style={{ backgroundColor: "#f2f4f6" }}>
         <br />
-        <div className="outlines" >
+        <div className="outlines">
           <NewCateg />
         </div>
         <br />
-        <div  className="outlines" >
+        <div className="outlines">
           <Appliances />
         </div>
         <br />
@@ -35,19 +35,19 @@ const Homepage = () => {
           <SliderTwo />
         </div>
         <br />
-        <div  className="outlines" >
+        <div className="outlines">
           <PestControl />
         </div>
-        <br/>
-        <div  className="outlines" >
-          <Luxury/>
+        <br />
+        <div className="outlines">
+          <Luxury />
         </div>
-        <br/>
-        <div  className="outlines" >
+        <br />
+        <div className="outlines">
           <Repairs />
         </div>
-        <br/>
-        <Insurance/>
+        <br />
+        <Insurance />
         <Footer />
       </div>
     </>
