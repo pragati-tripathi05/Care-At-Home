@@ -60,7 +60,7 @@ const BookingList = () => {
               </Tab>
             </TabList>
           </Tabs>
-
+{/* 
           <div id="mapping">
             {data?.map((ele) => (
               <div id="card" key={ele._id}>
@@ -70,7 +70,7 @@ const BookingList = () => {
                 <div>{ele.quantity}</div>
               </div>
             ))}
-          </div>
+          </div> */}
           <Text
             fontFamily={
               "axiforma-regular,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;"

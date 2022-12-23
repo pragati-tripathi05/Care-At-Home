@@ -32,16 +32,37 @@ img {
 /* -------------------------------------------------- */
 
 .Ongoing {
-  border-radius: 0.5px;
 
-  padding: "20px 40px";
-}
+    border-radius: .5px;
+  
+    padding: "20px 40px";
+  }
+  
+  .History {
+    border-radius: .5px;
+  
+    padding: "20px 40px";
+  }
+  
+  #book {
+    border-radius: 0%;
+    background-color: black;
+    color: white;
+    padding: "20px 50px";
+  }
+  
 
-.History {
-  border-radius: 0.5px;
 
-  padding: "20px 40px";
-}
+  .bookingDetails{
+    height: 100%;
+    width: 90%;
+    margin: auto;
+    margin-top: 25px;
+    background-color: #e3e3e3;
+   
+  }
+
+
 
 #book {
   border-radius: 0%;
@@ -59,3 +80,4 @@ img {
   background-color: white;
   color: black;
 }
+
