@@ -61,7 +61,7 @@ const HomeSection = () => {
     });
   };
 
-  const [windowSize, setWindowSize] = useState(getWindowSize());
+   const [windowSize, setWindowSize] = useState(getWindowSize());
   function getWindowSize() {
     const { innerWidth, innerHeight } = window;
     return { innerWidth, innerHeight };
@@ -171,6 +171,7 @@ const HomeSection = () => {
                   </Button>
                 </Box>
               )}
+              {/* ****************************************************************************** */}
               {/* </Text> */}
               {/* Drawer Start */}
               <Drawer isOpen={isOpen} placement="right" onClose={onClose}>

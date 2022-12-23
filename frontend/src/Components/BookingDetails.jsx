@@ -41,7 +41,7 @@ const BookingDetails = () => {
               style={{ fontFamily: "Roboto", color: "black" }}
             >
               {" "}
-              <Link to="/salon">
+              <Link to="/booking">
                 <ArrowBackIcon
                   style={{ backgroundColor: "white", color: "black" }}
                   mr="20px"
@@ -173,7 +173,7 @@ const BookingDetails = () => {
             mt="3"
             mb="3"
           >
-            Amount to pay: $5,257
+            Amount to pay: ₹5,257
           </Text>
           <hr />
           <Text
