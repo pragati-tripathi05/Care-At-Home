@@ -8,6 +8,7 @@ import Cart from "../Pages/Cart";
 import Payments from "../Pages/Payments";
 import { PrivatRoute } from "./PrivateRoute";
 import BookingList from "../Components/BookingList";
+import BookingDetails from "../Components/BookingDetails";
 
 const MainRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const MainRoutes = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/booking" element={<BookingList />} />
+        <Route path="/bookingdetails" element={<BookingDetails/>} />
         <Route
           path="/cart"
           element={
