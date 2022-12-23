@@ -33,6 +33,7 @@
    - Cart
    - Payments
    - Booking History
+   - Booking Details
 
 <br/>
 
