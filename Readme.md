@@ -69,10 +69,10 @@
 ![Homepage](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/8.png)
 
 - _Booking History_
-![Booking_History](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/10.png)
+![Booking_History](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/12.png)
 
 - _Booking Details_
-![Booking_Details](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/11.png)
+![Booking_Details](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/13.png)
 
 
 
