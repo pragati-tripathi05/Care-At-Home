@@ -147,7 +147,7 @@ const BookingList = () => {
                     prior to the scheduled time. You will be notified through
                     SMS & Email.
                   </Text>
-                  {/* <br/> */}
+                
                   <Link to="/bookingdetails">
                     <Button w="100%" p="6" bg="black" color="white">
                       View Booking
@@ -202,9 +202,11 @@ const BookingList = () => {
                   </Text>
                  
 
-                  <Button w="100%" p="6" bg="black" color="white">
-                    View Booking
-                  </Button>
+                  <Link to="/bookingdetails">
+                    <Button w="100%" p="6" bg="black" color="white">
+                      View Booking
+                    </Button>
+                  </Link>
                 </Box>
 
                 
@@ -256,9 +258,11 @@ const BookingList = () => {
                   </Text>
                   {/* <br/> */}
 
-                  <Button w="100%" p="6" bg="black" color="white">
-                    View Booking
-                  </Button>
+                  <Link to="/bookingdetails">
+                    <Button w="100%" p="6" bg="black" color="white">
+                      View Booking
+                    </Button>
+                  </Link>
                 </Box>
               </SimpleGrid>
            
