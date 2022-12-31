@@ -2,9 +2,9 @@
 
 #### psychotic-yam-1841 - _Urban Company Clone_
 
-<img src="https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/src/Assets/care%40home_logo.png"/>
+![care@home_logo](https://user-images.githubusercontent.com/97211835/210133089-1438974f-162f-48ca-8083-7038d5e0575d.png)
 
-# **CareAtHome**
+
 ### CareAtHome is an online platform helping customers to book reliable & high quality services, delivered by trained professionals conveniently at home.
 > **Note**: It will take some time to sign in,sign up and load services data at first because the backend is hosted on render.com, which takes some time to start.
 
@@ -50,29 +50,43 @@
 ## Glimpse of our website
 
 - _HomePage_
-![Homepage](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/1.png)
-![Homepage](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/2.png)
+
+![1](https://user-images.githubusercontent.com/97211835/210133114-e60123af-4092-4b3f-b8c3-f9acd535f410.png)
+
+![2](https://user-images.githubusercontent.com/97211835/210133117-9903fc38-ebed-45b0-9aa9-3022afef5ad3.png)
 
 - _Signup_
-![Signup](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/3.png)
+
+
+![3](https://user-images.githubusercontent.com/97211835/210133125-c7a4895d-8f4b-4860-b769-304ec8cd00e2.png)
 
 - _Login_
-![Login](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/4.png)
+
+![4](https://user-images.githubusercontent.com/97211835/210133137-092fee7f-873b-4a40-b02c-a730eddb3793.png)
 
 - _Products_
-![Product Page](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/5.png)
-![Product Page](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/6.png)
+
+![5](https://user-images.githubusercontent.com/97211835/210133163-a625bf62-0f27-4859-b946-201d2ba3e924.png)
+
+![6](https://user-images.githubusercontent.com/97211835/210133171-d76a88d0-fd72-47ee-b860-065e14591329.png)
+
 - _Cart_
-![Cart](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/7.png)
+
+![7](https://user-images.githubusercontent.com/97211835/210133196-67de6b1c-62e3-446e-8b78-c7608cc8103a.png)
 
 - _Payments Page_
-![Homepage](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/8.png)
+
+![8](https://user-images.githubusercontent.com/97211835/210133217-fcdc590b-740d-4cca-b4a7-057da35bc3e4.png)
 
 - _Booking History_
-![Booking_History](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/12.png)
+
+![Booking_History](https://user-images.githubusercontent.com/97211835/210133284-4c6a23cd-43ea-4cd4-a997-f2b432966e06.png)
+
 
 - _Booking Details_
-![Booking_Details](https://github.com/pragati-tripathi05/psychotic-yam-1841/blob/master/frontend/public/13.png)
+
+![Booking_Details](https://user-images.githubusercontent.com/97211835/210133296-c536879a-eeff-49f9-b5b6-49d8db812c94.png)
+
 
 
 
